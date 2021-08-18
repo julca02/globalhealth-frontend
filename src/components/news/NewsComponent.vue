@@ -12,7 +12,7 @@
       lg:py-20
     "
   >
-    <Loading v-if="listNews === null"/>
+    <Loading v-if="listNews === null" />
     <div class="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
       <div
         v-for="item in listNews"
@@ -90,13 +90,13 @@
 
 <script>
 import News from "@/services/getNews";
-import Loading from "@/components/layout/LoadingComponent"
+import Loading from "@/components/layout/LoadingComponent";
 export default {
   data: () => ({
     listNews: null,
   }),
-  components:{
-    Loading
+  components: {
+    Loading,
   },
   created() {
     this.getNews();
@@ -105,10 +105,7 @@ export default {
     async getNews() {
       try {
         let response = await News.getNewsList();
-        const filterResponse = response.data.articles.filter(
-          (item) => item.urlToImage !== null
-        );
-        this.listNews = filterResponse || null
+        this.listNews = response || null;
       } catch (error) {
         console.log(error);
       }

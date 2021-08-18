@@ -158,10 +158,10 @@
             </div>
             <div class="mt-6">
               <nav class="grid gap-y-8">
-                <a
+                <router-link
                   v-for="item in solutions"
                   :key="item.name"
-                  :href="item.href"
+                  :to="item.href"
                   class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                 >
                   <component
@@ -172,20 +172,20 @@
                   <span class="ml-3 text-base font-medium text-gray-900">
                     {{ item.name }}
                   </span>
-                </a>
+                </router-link>
               </nav>
             </div>
           </div>
           <div class="py-6 px-5 space-y-6">
             <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-              <a
+              <router-link
                 v-for="item in resources"
                 :key="item.name"
-                :href="item.href"
+                :to="item.href"
                 class="text-base font-medium text-gray-900 hover:text-gray-700"
               >
                 {{ item.name }}
-              </a>
+              </router-link>
             </div>
             <div>
               <a
@@ -239,7 +239,7 @@ const solutions = [
     name: "Noticias",
     description:
       "Get a better understanding of where your traffic is coming from.",
-    href: "#",
+    href: "/noticias",
   },
   {
     name: "Doctores",
