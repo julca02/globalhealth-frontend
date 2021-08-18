@@ -47,10 +47,10 @@
           "
         >
           <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-            <a
+            <router-link
               v-for="item in resources"
               :key="item.name"
-              :href="item.href"
+              :to="item.href"
               class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
             >
               <component
@@ -66,7 +66,7 @@
                   {{ item.description }}
                 </p>
               </div>
-            </a>
+            </router-link>
           </div>
           <div class="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
             <div>
@@ -138,7 +138,7 @@ const resources = [
   {
     name: "Covid",
     description: "Understand how we take your privacy seriously.",
-    href: "#",
+    href: "/covid-noticias",
     icon: ShieldCheckIcon,
   },
 ]
