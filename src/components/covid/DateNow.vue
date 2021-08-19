@@ -1,18 +1,5 @@
 <template>
   <div>
-    <div
-      class="
-        px-4
-        mx-auto
-        text-center
-        sm:max-w-xl
-        md:max-w-full
-        lg:max-w-screen-xl
-        md:px-24
-        lg:px-8
-        lg:pt-10
-      "
-    >
       <p
         class="
           mb-2
@@ -43,52 +30,50 @@
               hover:text-deep-purple-accent-700
               sm:text-4xl
             "
+            :class="[clase]"
           >
             {{ title }}
           </p>
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
+import { onMounted, ref } from "@vue/runtime-core";
+const mesNombre = [
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre",
+];
 export default {
-  data: () => ({
-    dia: 0,
-    mes: 0,
-    año: 0,
-    mesNombre: [
-      "Enero",
-      "Febrero",
-      "Marzo",
-      "Abril",
-      "Mayo",
-      "Junio",
-      "Julio",
-      "Agosto",
-      "Septiembre",
-      "Octubre",
-      "Noviembre",
-      "Diciembre",
-    ],
-  }),
   props: {
     title: String,
+    clase: String,
   },
-  methods: {
-    setTime() {
+  setup() {
+    const dia = ref(0);
+    const mes = ref(0);
+    const año = ref(0);
+    const setTime = () => {
       const date = new Date();
-      this.dia = date.getDate().toLocaleString();
-      this.mes = this.mesNombre[date.getMonth()];
-      this.año = date.getFullYear().toLocaleString();
-    },
-  },
-  mounted() {
-    this.setTime();
+      dia.value = date.getDate().toLocaleString();
+      mes.value = mesNombre[date.getMonth()];
+      año.value = date.getFullYear();
+    };
+    onMounted(() => {
+      setTime();
+    });
+    return { dia, mes, año}
   },
 };
 </script>
-
-<style>
-</style>

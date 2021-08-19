@@ -1,17 +1,5 @@
 <template>
-  <div
-    class="
-      px-4
-      py-16
-      mx-auto
-      sm:max-w-xl
-      md:max-w-full
-      lg:max-w-screen-xl
-      md:px-24
-      lg:px-8
-      lg:py-15
-    "
-  >
+  <div :class="[clase]">
     <Loading v-if="dataCovid === null" />
     <div v-else class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
       <div
@@ -69,26 +57,27 @@
 <script>
 import getCovid from "@/services/getCovid";
 import Loading from "@/components/layout/LoadingComponent";
+import { ref } from "@vue/reactivity";
+import { onMounted } from "@vue/runtime-core";
 export default {
-  data: () => ({
-    dataCovid: null,
-  }),
   components: {
     Loading,
   },
   props: {
     covid: String,
+    clase:{
+      type: String, 
+      default: ''
+    }
   },
-  created() {
-    this.getCovid();
-  },
-  methods: {
-    async getCovid() {
+  setup(props) {
+    const dataCovid = ref(null);
+    const getCovidNews = async () => {
       try {
         let response = await getCovid.getCovidColombia();
         let response2 = await getCovid.getCovidWorld();
-        if (this.covid === "colombia") {
-          this.dataCovid = [
+        if (props.covid === "colombia") {
+          dataCovid.value = [
             {
               casos: response.todayCases,
               nombre: "Nuevos Casos",
@@ -105,14 +94,14 @@ export default {
             },
             {
               casos: response.todayRecovered,
-              nombre: "Recuperados",
+              nombre: "Nuevos Recuperados",
               resumen: "Personas recuperdas en Colombia.",
               icono:
                 "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
             },
           ];
         } else {
-          this.dataCovid = [
+          dataCovid.value = [
             {
               casos: response2.todayCases,
               nombre: "Nuevos Casos",
@@ -129,7 +118,7 @@ export default {
             },
             {
               casos: response2.todayRecovered,
-              nombre: "Recuperados",
+              nombre: "Nuevos Recuperados",
               resumen: "Personas recuperdas en el mundo",
               icono:
                 "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
@@ -139,7 +128,13 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
+    };
+    onMounted(() => {
+      getCovidNews();
+    });
+    return {
+      dataCovid,
+    };
   },
 };
 </script>
