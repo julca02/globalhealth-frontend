@@ -1,17 +1,4 @@
 <template>
-  <div
-    class="
-      px-4
-      py-16
-      mx-auto
-      sm:max-w-xl
-      md:max-w-full
-      lg:max-w-screen-xl
-      md:px-24
-      lg:px-8
-      lg:py-20
-    "
-  >
     <Loading v-if="listNews === null" />
     <div class="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
       <div
@@ -85,31 +72,33 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
 import News from "@/services/getNews";
 import Loading from "@/components/layout/LoadingComponent";
+import { ref } from '@vue/reactivity';
+import { onMounted } from '@vue/runtime-core';
 export default {
-  data: () => ({
-    listNews: null,
-  }),
   components: {
     Loading,
   },
-  created() {
-    this.getNews();
-  },
-  methods: {
-    async getNews() {
+  setup(){
+    const listNews = ref(null)
+    const getNews = async() => {
       try {
         let response = await News.getNewsList();
-        this.listNews = response || null;
+        listNews.value = response || null
       } catch (error) {
         console.log(error);
       }
-    },
-  },
+    }
+    onMounted(() => {
+      getNews()
+    })
+    return{
+      listNews
+    }
+  }
 };
 </script>

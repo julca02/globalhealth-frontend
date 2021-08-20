@@ -132,7 +132,7 @@
                 <img
                   class="h-8 w-auto"
                   src="@/assets/logo.svg"
-                  alt="Workflow"
+                  alt="logo"
                 />
               </div>
               <div class="-mr-2">
