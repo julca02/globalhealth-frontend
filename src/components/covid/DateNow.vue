@@ -29,6 +29,7 @@
               duration-200
               hover:text-deep-purple-accent-700
               sm:text-4xl
+              title
             "
             :class="[clase]"
           >
@@ -77,3 +78,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+.title{
+  font-family: 'Montserrat', sans-serif;
+}
+</style>
