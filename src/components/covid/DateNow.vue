@@ -78,9 +78,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
-.title{
-  font-family: 'Montserrat', sans-serif;
-}
-</style>
+

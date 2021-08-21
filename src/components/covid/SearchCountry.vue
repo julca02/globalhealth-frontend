@@ -13,7 +13,6 @@
       flex
       justify-center
       items-center
-      relative
     "
   >
     <input

@@ -39,10 +39,10 @@
             />
           </svg>
         </div>
-        <h6 class="text-4xl font-bold text-deep-purple-accent-400 title">
+        <h6 class="text-4xl font-bold text-deep-purple-accent-400">
           {{ casosMostrar }}
         </h6>
-        <p class="mb-2 font-bold text-md">{{ nombreMostrar }}</p>
+        <p class="mb-2 font-bold text-md title">{{ nombreMostrar }}</p>
         <p class="text-gray-700">{{ resumenMonstrar }}</p>
       </div>
 </template>

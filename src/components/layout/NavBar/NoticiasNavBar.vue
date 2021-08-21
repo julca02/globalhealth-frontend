@@ -27,7 +27,6 @@
       <PopoverPanel
         class="
           absolute
-          z-10
           left-1/2
           transform
           -translate-x-1/2
