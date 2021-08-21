@@ -1,4 +1,4 @@
-import { API_URL_COVID, API_COUNTRY_COVID, API_YESTERDAY_COVID } from "./settings";
+import { API_URL_COVID,  API_YESTERDAY_COVID } from "./settings";
 import axios from 'axios'
 
 const fromApiResponseToNewsCovid = apiResponse => {
@@ -19,8 +19,8 @@ const fromApiResponseToNewsCovidWorld = apiResponse => {
     return []
 }
 export default {
-    getCovidColombia() {
-        const apiURL = `${API_URL_COVID}/countries/${API_COUNTRY_COVID}?yesterday=${API_YESTERDAY_COVID}&strict=true`
+    getCovidCountry(pais) {
+        const apiURL = `${API_URL_COVID}/countries/${pais}?yesterday=${API_YESTERDAY_COVID}&strict=true`
         return axios(apiURL)
             .then(fromApiResponseToNewsCovid)
     },

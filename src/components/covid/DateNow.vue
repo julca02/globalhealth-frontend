@@ -29,6 +29,7 @@
               duration-200
               hover:text-deep-purple-accent-700
               sm:text-4xl
+              title
             "
             :class="[clase]"
           >
@@ -77,3 +78,4 @@ export default {
   },
 };
 </script>
+

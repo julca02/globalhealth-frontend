@@ -1,20 +1,29 @@
 <template>
   <div id="nav">
-    <NavbarComponent/>
+    <NavbarComponent />
   </div>
   <router-view />
-  <FooterComponent/>
+  <FooterComponent />
 </template>
 
 <script>
-import NavbarComponent from './components/layout/NavBar/NavbarComponent.vue';
-import FooterComponent from '@/components/layout/Footer/FooterComponent.vue'
+import NavbarComponent from "./components/layout/NavBar/NavbarComponent.vue";
+import FooterComponent from "@/components/layout/Footer/FooterComponent.vue";
 export default {
   components: {
     NavbarComponent,
-    FooterComponent
-   
-  }
+    FooterComponent,
+  },
 };
 </script>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+.title {
+  font-family: "Montserrat", sans-serif;
+}
+.nav {
+  font-family: "Comfortaa", cursive;
+}
+</style>
 

@@ -4,5 +4,5 @@ export const API_COUNTRY_NEWS = 'co'
 export const API_CATEGORY_NEWS = 'health'
 
 export const API_URL_COVID = 'https://corona.lmao.ninja/v2'
-export const API_COUNTRY_COVID = 'COL'
+/* export const API_COUNTRY_COVID = 'COL' */
 export const API_YESTERDAY_COVID = 'true'

@@ -12,7 +12,7 @@
           md:space-x-10
         "
       >
-        <div class="flex lg:w-0 lg:flex-1 items-center space-x-10">
+        <div class="flex lg:w-0 lg:flex-1 items-center space-x-10 nav">
           <a href="/#">
             <span class="sr-only">GlobalHealth</span>
             <img
@@ -57,7 +57,7 @@
             <MenuIcon class="h-6 w-6" aria-hidden="true" />
           </PopoverButton>
         </div>
-        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 nav">
           <a
             href="#"
             class="
@@ -157,7 +157,7 @@
               </div>
             </div>
             <div class="mt-6">
-              <nav class="grid gap-y-8">
+              <nav class="grid gap-y-8 z-50">
                 <router-link
                   v-for="item in solutions"
                   :key="item.name"
@@ -182,12 +182,12 @@
                 v-for="item in resources"
                 :key="item.name"
                 :to="item.href"
-                class="text-base font-medium text-gray-900 hover:text-gray-700"
+                class="text-base font-medium text-gray-900 hover:text-gray-700 nav"
               >
                 {{ item.name }}
               </router-link>
             </div>
-            <div>
+            <div class="nav">
               <a
                 href="#"
                 class="
