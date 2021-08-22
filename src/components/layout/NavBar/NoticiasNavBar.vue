@@ -1,5 +1,5 @@
 <template>
-  <Popover class="relative" v-slot="{ open }">
+  <Popover class="relative z-50" v-slot="{ open }">
     <PopoverButton
       :class="[
         open ? 'text-gray-900' : 'text-gray-500',
