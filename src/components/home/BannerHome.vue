@@ -8,28 +8,25 @@
         via-blue-600
         to-blue-200
         w-full
-        h-1/2
+        h-2/5
         z-0
         top-0
       "
-      style="
-        border-bottom-left-radius: 5%;
-        border-bottom-right-radius: 5%;
-      "
+      style="border-bottom-left-radius: 5%; border-bottom-right-radius: 5%"
     ></div>
     <div class="absolute inset-x-auto w-full z-10">
-      <div class="w-5/6 mx-auto shadow-md rounded-md p-4 bg-white">
+      <div class="w-5/6 mx-auto shadow-md rounded-md bg-white">
         <div
           class="
             px-4
-            py-16
+            py-20
             mx-auto
             sm:max-w-xl
             md:max-w-full
             lg:max-w-screen-xl
             md:px-24
             lg:px-8
-            lg:py-20
+            lg:py-10
           "
         >
           <div class="grid gap-5 row-gap-8 lg:grid-cols-2">

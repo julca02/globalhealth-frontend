@@ -1,8 +1,8 @@
 <template>
   <section class="text-gray-600 body-font">
-    <div class="container px-5 py-10 mx-auto">
+    <div class="container px-5 my-16 mx-auto">
       <div class="text-center max-w-xl mx-auto">
-        <h1 class="text-6xl md:text-7xl font-bold mb-5 text-gray-600">
+        <h1 class="text-3xl md:text-5xl font-bold mb-5 text-gray-600 title">
           Aquí todos son <br /> escuchados
         </h1>
         <h3 class="text-xl mb-5 font-light">

@@ -1,5 +1,5 @@
 <template>
-  <Popover class="relative bg-white">
+  <Popover class="relative bg-white z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div
         class="
@@ -34,7 +34,7 @@
             >
               Informacion
             </router-link>
-            <noticias-nav-bar />
+            <NoticiasNavBar :responsive="true"/>
           </PopoverGroup>
         </div>
         <div class="-mr-2 -my-2 md:hidden">
@@ -173,20 +173,12 @@
                     {{ item.name }}
                   </span>
                 </router-link>
+                
               </nav>
             </div>
           </div>
           <div class="py-6 px-5 space-y-6">
-            <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-              <router-link
-                v-for="item in resources"
-                :key="item.name"
-                :to="item.href"
-                class="text-base font-medium text-gray-900 hover:text-gray-700 nav"
-              >
-                {{ item.name }}
-              </router-link>
-            </div>
+            <NoticiasNavBar/>
             <div class="nav">
               <a
                 href="#"
@@ -247,9 +239,9 @@ const solutions = [
     href: "#",
   },
   {
-    name: "Salud",
+    name: "Informacion",
     description: "Your customers' data will be safe and secure.",
-    href: "#",
+    href: "/informacion",
   },
 ];
 
