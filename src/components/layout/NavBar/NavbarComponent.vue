@@ -54,7 +54,7 @@
             "
           >
             <span class="sr-only">Abir Menu</span>
-            <MenuIcon class="h-6 w-6" aria-hidden="true" />
+            <font-awesome-icon icon="bars" size="lg" aria-hidden="true"/>
           </PopoverButton>
         </div>
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 nav">
@@ -152,7 +152,7 @@
                   "
                 >
                   <span class="sr-only">Cerrar menu</span>
-                  <XIcon class="h-6 w-6" aria-hidden="true" />
+                  <font-awesome-icon icon="times" size="lg" aria-hidden="true"/>
                 </PopoverButton>
               </div>
             </div>
@@ -223,7 +223,6 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/vue";
-import { MenuIcon, XIcon } from "@heroicons/vue/outline";
 import NoticiasNavBar from "./NoticiasNavBar.vue";
 
 const solutions = [
@@ -251,8 +250,6 @@ export default {
     PopoverButton,
     PopoverGroup,
     PopoverPanel,
-    MenuIcon,
-    XIcon,
     NoticiasNavBar,
   },
   setup() {

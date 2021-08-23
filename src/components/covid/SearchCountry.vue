@@ -32,17 +32,13 @@
       type="submit"
       class="ml-1 outline-none focus:outline-none active:outline-none"
     >
-      <SearchCircleIcon class="w-auto h-7 text-blue-900" />
+      <font-awesome-icon icon="search" class="text-blue-900"  />
     </button>
   </form>
 </template>
 
 <script>
-import { SearchCircleIcon } from "@heroicons/vue/outline";
 export default {
-  components: {
-    SearchCircleIcon,
-  },
   data() {
     return {
       buscar: "",

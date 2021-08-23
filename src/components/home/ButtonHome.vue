@@ -4,8 +4,8 @@
     <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between flex-wrap">
         <div class="w-0 flex-1 flex items-center">
-          <span class="flex p-2 rounded-lg bg-indigo-800">
-            <SpeakerphoneIcon class="h-6 w-6 text-white" aria-hidden="true" />
+          <span class="flex p-2 rounded-lg bg-blue-900">
+            <font-awesome-icon icon="phone-volume" size="lg" class="text-white" aria-hidden="true" />
           </span>
           <p class="ml-3 font-medium text-white truncate nav">
             <span class="md:hidden"> We announced a new product! </span>
@@ -55,7 +55,7 @@
             "
           >
             <span class="sr-only">Dismiss</span>
-            <XIcon class="h-6 w-6 text-white" aria-hidden="true" />
+            <font-awesome-icon icon="times" class="text-white" aria-hidden="true"/>
           </button>
         </div>
       </div>
@@ -64,13 +64,8 @@
 </template>
 
 <script>
-import { SpeakerphoneIcon, XIcon } from "@heroicons/vue/outline";
 
 export default {
-  components: {
-    SpeakerphoneIcon,
-    XIcon,
-  },
   setup() {
     const cerrar = () => {
       const name = document.getElementById("banner");

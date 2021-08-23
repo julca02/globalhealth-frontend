@@ -1,6 +1,8 @@
 <template>
   <div
     class="text-center border-2 border-gray-200 px-4 py-6 rounded-lg shadow-lg"
+    v-for="item in todos"
+    :key="item"
   >
     <div
       class="
@@ -17,34 +19,27 @@
         sm:h-12
       "
     >
-      <component
-        :is="iconoMostrar"
+      <font-awesome-icon
+        :icon="item.icono"
         class="flex-shrink-0 h-6 w-6 text-blue-600"
         aria-hidden="true"
       />
     </div>
     <h6 class="text-4xl font-bold text-deep-purple-accent-400">
-      {{ casosMostrar }}
+      {{ item.casos }}
     </h6>
-    <p class="mb-2 font-bold text-md title">{{ nombreMostrar }}</p>
-    <p class="text-gray-700">{{ resumenMonstrar }}</p>
+    <p class="mb-2 font-bold text-md title">{{ item.nombre }}</p>
+    <p class="text-gray-700">{{ item.resumen }}</p>
   </div>
 </template>
 
 <script>
+import { inject } from "@vue/runtime-core";
 export default {
-  props: {
-    icono: Function,
-    casos: Number,
-    nombre: String,
-    resumen: String,
-  },
-  setup(props) {
+  setup() {
+    const todos = inject("result");
     return {
-      iconoMostrar: props.icono,
-      casosMostrar: props.casos,
-      nombreMostrar: props.nombre,
-      resumenMonstrar: props.resumen,
+      todos,
     };
   },
 };

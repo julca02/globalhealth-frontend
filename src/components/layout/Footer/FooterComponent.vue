@@ -101,7 +101,7 @@
                     transition-colors
                   "
                 >
-                  <SearchIcon />
+                  <font-awesome-icon :icon="['fas', 'search']" size="lg"/>
                 </button>
               </div>
             </div>
@@ -119,8 +119,7 @@
           <a
             href="https://github.com/julca02/globalhealth-frontend"
             target="_blank"
-            ><PaperClipIcon class="text-white w-auto h-5"
-          /></a>
+            ><font-awesome-icon :icon="['fab', 'github']" size="lg" class="text-white"/></a>
         </div>
       </div>
     </div>
@@ -128,13 +127,7 @@
 </template>
 
 <script>
-import { SearchIcon } from "@heroicons/vue/outline";
-import { PaperClipIcon } from "@heroicons/vue/outline";
 export default {
-  components: {
-    SearchIcon,
-    PaperClipIcon,
-  },
 };
 </script>
 

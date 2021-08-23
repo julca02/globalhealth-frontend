@@ -8,7 +8,8 @@
         ]"
       >
         <span>Salud</span>
-        <ChevronDownIcon
+        <font-awesome-icon
+          icon="chevron-down"
           :class="[
             open ? 'text-gray-600' : 'text-gray-400',
             'ml-2 h-5 w-5 group-hover:text-gray-500',
@@ -53,8 +54,8 @@
                 :to="item.href"
                 class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
               >
-                <component
-                  :is="item.icon"
+                <font-awesome-icon
+                  :icon="item.icon"
                   class="flex-shrink-0 h-6 w-6 text-blue-600"
                   aria-hidden="true"
                 />
@@ -126,12 +127,6 @@
 
 <script>
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
-import {
-  BookmarkAltIcon,
-  ShieldCheckIcon,
-  SupportIcon,
-} from "@heroicons/vue/outline";
-import { ChevronDownIcon } from "@heroicons/vue/solid";
 
 const resources = [
   {
@@ -139,20 +134,20 @@ const resources = [
     description:
       "Get all of your questions answered in our forums or contact support.",
     href: "#",
-    icon: SupportIcon,
+    icon: "info",
   },
   {
     name: "Guias",
     description:
       "Learn how to maximize our platform to get the most out of it.",
     href: "#",
-    icon: BookmarkAltIcon,
+    icon: "book-medical",
   },
   {
     name: "Covid",
     description: "Understand how we take your privacy seriously.",
     href: "/covid-noticias",
-    icon: ShieldCheckIcon,
+    icon: "shield-virus",
   },
 ];
 
@@ -171,7 +166,6 @@ export default {
     Popover,
     PopoverButton,
     PopoverPanel,
-    ChevronDownIcon,
   },
   props: {
     responsive: Boolean,
