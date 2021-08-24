@@ -18,7 +18,7 @@
     <input
       type="search"
       name="search"
-      v-model="buscar"
+      v-model.trim="buscar"
       placeholder="Buscar pais"
       class="
         appearance-none
@@ -46,6 +46,9 @@ export default {
   },
   methods: {
     searchCountry() {
+      if(this.buscar === ""){
+        return
+      }
       this.$emit("buscar", this.buscar);
     },
   },

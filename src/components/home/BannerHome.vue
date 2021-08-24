@@ -1,21 +1,18 @@
 <template>
-  <div class="overflow-hidden relative flex items-center min-h-screen z-0">
+  <div class="relative flex items-center h-full z-0">
     <div
       class="
         absolute
-        bg-gradient-to-tr
-        from-blue-900
-        via-blue-600
-        to-blue-200
+        bg-blue-100
         w-full
-        h-2/5
+        h-4/6
         z-0
         top-0
       "
       style="border-bottom-left-radius: 5%; border-bottom-right-radius: 5%"
     ></div>
-    <div class="absolute inset-x-auto w-full z-10">
-      <div class="w-5/6 mx-auto shadow-md rounded-md bg-white">
+    <div class="w-full z-10 mt-40 ">
+      <div class="w-5/6 mx-auto shadow-md rounded-md shadow-2xl bg-white">
         <div
           class="
             px-4
@@ -36,13 +33,12 @@
                   class="
                     max-w-lg
                     mb-6
-                    font-sans
                     text-3xl
                     font-bold
                     tracking-tight
                     text-gray-600
                     sm:text-4xl
-                    sm:leading-none
+                    title
                   "
                 >
                   GlobalHealth, bienvenidos a nuestra plataforma de salud.<br
@@ -51,7 +47,7 @@
                   Mejora tu experiencia en tramines.
                 </h2>
 
-                <p class="text-base text-gray-700 md:text-lg">
+                <p class="text-base text-gray-700 md:text-lg nav">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Quaerat officiis explicabo ratione quia excepturi.
                 </p>

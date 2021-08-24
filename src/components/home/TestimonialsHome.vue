@@ -1,9 +1,10 @@
 <template>
-  <section class="text-gray-600 body-font">
+  <section class="body-font bg-blue-50 mt-6 py-1 rounded-xl ">
     <div class="container px-5 my-16 mx-auto">
       <div class="text-center max-w-xl mx-auto">
         <h1 class="text-3xl md:text-5xl font-bold mb-5 text-gray-600 title">
-          Aquí todos son <br /> escuchados
+          Aquí todos son <br />
+          escuchados
         </h1>
         <h3 class="text-xl mb-5 font-light">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -14,7 +15,7 @@
       </div>
       <div class="flex flex-wrap -m-4">
         <div
-          class="lg:w-1/3 lg:mb-0 mb-6 p-4"
+          class="lg:w-1/3 lg:mb-0 md:py-4 px-4"
           v-for="item in arrayTestiomonials"
           :key="item"
         >

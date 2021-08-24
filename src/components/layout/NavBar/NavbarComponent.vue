@@ -1,12 +1,11 @@
 <template>
-  <Popover class="relative bg-white z-50">
+  <Popover class="relative z-50 nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div
         class="
           flex
           justify-between
           items-center
-          border-b-2 border-gray-100
           py-6
           md:justify-start
           md:space-x-10
@@ -85,9 +84,8 @@
               shadow-sm
               text-base
               font-medium
-              text-gray-500
-              hover:bg-blue-900
-              hover:text-white
+              bg-blue-900
+              text-white
             "
           >
             Registrate
