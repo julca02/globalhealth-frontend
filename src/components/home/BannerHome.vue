@@ -48,8 +48,7 @@
                 </h2>
 
                 <p class="text-base text-gray-700 md:text-lg nav">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quaerat officiis explicabo ratione quia excepturi.
+                  nos encargaremos de mejorar su experiencia a la hora de establecer diferentes servicios de salud.
                 </p>
               </div>
             </div>
