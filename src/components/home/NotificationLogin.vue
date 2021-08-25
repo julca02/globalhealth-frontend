@@ -6,7 +6,7 @@
         <div class="flex flex-col ml-3 text-white">
           <div class="font-bold text-2xl text-justify title leading-none">Ingresa a tu cuenta!</div>
           <p class="text-xl leading-none mt-1 nav">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, cumque.
+           Tendrás la posibilidad de encontar diferentes servicos.
           </p>
         </div>
       </div>

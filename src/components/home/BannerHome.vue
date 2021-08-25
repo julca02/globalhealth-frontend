@@ -48,8 +48,7 @@
                 </h2>
 
                 <p class="text-base text-gray-700 md:text-lg nav">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quaerat officiis explicabo ratione quia excepturi.
+                  Nos comprometemos en mejorar tu experiencia con cualquier tipo de entidades de salud, a través de nuestro servicios que grantizan una nueva forma de atender a nuestros pacientes de forma digital y eficaz.
                 </p>
               </div>
             </div>

@@ -35,9 +35,7 @@
       </div>
       <div class="lg:w-1/2">
         <p class="text-base text-gray-700 md:text-lg">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque rem aperiam, eaque ipsa quae. Sed ut unde omnis
-          iste natus.
+          Nuestro servicios se enfocan en mejorar su atención en salud, evitando tramites y demoras. que obstaculizan una buena prestacíon de salud .
         </p>
       </div>
     </div>
@@ -111,21 +109,21 @@ const servicesCard = [
   {
     name: "Historial clinico",
     abstract:
-      "Disrupt inspire and think tank, social entrepreneur but preliminary thinking think tank compelling.",
+      "Podrás visualizar de forma fácil y sencilla toda la documentación digital de tu historial clinico (procedimiento,medicación y personal medico .",
     href: "/",
     icon: "stethoscope",
   },
   {
     name: "Noticias de salud",
     abstract:
-      "Disrupt inspire and think tank, social entrepreneur but preliminary thinking think tank compelling.",
+      "Te actulizaremos diariamente de las noticias que comprendren la salud a nivel nacional e internacional.",
     href: "/noticias",
     icon: "newspaper",
   },
   {
     name: "Covid",
     abstract:
-      "Disrupt inspire and think tank, social entrepreneur but preliminary thinking think tank compelling.",
+      "Tendrás las posibilidad de visulizar en tiempo real los casos nuevos, muertos y recuperados por convid en colombia y en todo el mundo.",
     href: "/covid-noticias",
     icon: "virus",
   },
