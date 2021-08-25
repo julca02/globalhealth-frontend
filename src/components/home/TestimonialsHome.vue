@@ -7,7 +7,7 @@
           escuchados
         </h1>
         <h3 class="text-xl mb-5 font-light">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          GlobalHealth comprende las necesidades de nuestros usuarios por lo cual siempre escucharemos sus sugerencias para mejorar cada día.
         </h3>
         <div class="text-center mb-10">
           <span class="inline-block w-40 h-1 rounded-full bg-indigo-500"></span>
@@ -58,15 +58,15 @@ const arrayTestiomonials = [
   {
     imagen: "https://electronicssoftware.net/wp-content/uploads/user.png",
     testimonio:
-      "Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.",
-    nombre: "Pepito Perez",
+      "Es mi primera experiencia con una plataforma de este tipo,pero para mi opinión esta se caracteriza por ser una forma fácil de agilizar estos tramites burocráticos que se demoran una eternidad de manera presencial.",
+    nombre: "Juan diaz",
     fecha: new Date(2020, 2, 12),
   },
   {
     imagen:
       "https://i.pinimg.com/originals/72/cd/96/72cd969f8e21be3476277d12d44c791c.png",
     testimonio:
-      "Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.",
+      "Me encanto este tipo de plataforma la cual unifica diferentes servicios esenciales que componen la prestacion de salud, mi servicio favorita es poder agendar una cita médica.",
     nombre: "Jesus Garcia",
     fecha: new Date(2019, 3, 9),
   },
@@ -74,8 +74,8 @@ const arrayTestiomonials = [
     imagen:
       "https://www.pngkit.com/png/full/115-1150342_user-avatar-icon-iconos-de-mujeres-a-color.png",
     testimonio:
-      "Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.",
-    nombre: "Cecilie Perez",
+    "Llevo un tiempo utlizando esta tipo de plataforma, la cualidad más destacable se sustentan en la manera en la cual comprender y escuchan las necesidades de cada usuario, la cual la toman como una referencia para mejorar.",
+    nombre: "Isabella Martinez",
     fecha: new Date(2010, 2, 8),
   },
 ];
