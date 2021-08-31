@@ -57,8 +57,10 @@
           </PopoverButton>
         </div>
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 nav">
-          <a
-            href="#"
+          <NavProfile v-if="this.$store.state.Login.LoggedIn" :image="this.$store.state.Login.user.avatar"/>
+          <div v-else>
+            <router-link
+            to="/ingresa"
             class="
               whitespace-nowrap
               text-base
@@ -68,7 +70,7 @@
             "
           >
             Ingresa
-          </a>
+          </router-link>
           <a
             href="#"
             class="
@@ -90,6 +92,7 @@
           >
             Registrate
           </a>
+          </div>
         </div>
       </div>
     </div>
@@ -222,6 +225,7 @@ import {
   PopoverPanel,
 } from "@headlessui/vue";
 import NoticiasNavBar from "./NoticiasNavBar.vue";
+import NavProfile from '../../profile/NavProfile.vue';
 
 const solutions = [
   {
@@ -249,6 +253,7 @@ export default {
     PopoverGroup,
     PopoverPanel,
     NoticiasNavBar,
+    NavProfile,
   },
   setup() {
     return {

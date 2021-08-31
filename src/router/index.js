@@ -24,7 +24,12 @@ const routes = [
   {
     path: '/covid-noticias',
     name: 'Covid',
-    component: () => import(/* webpackChunkName: "new" */'../views/Covid.vue')
+    component: () => import(/* webpackChunkName: "covid" */'../views/Covid.vue')
+  }, 
+  {
+    path: '/ingresa',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "login" */'../views/Login.vue')
   }
 ]
 
