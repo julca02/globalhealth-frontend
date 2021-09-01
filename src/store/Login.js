@@ -14,6 +14,7 @@ export const Login = {
     state: initialState,
     actions: {
         async login({ commit }, user) {
+            commit('login')
             try {
                 const res = await login(user)
 
@@ -44,13 +45,9 @@ export const Login = {
         },
     },
     mutations: {
-        resetState(state) {
-            state.LoggedIn = false;
-            state.token = null;
-            state.user = null;
-            state.errorMessage = null
-            state.isLoading = false
-        },
+        login(state){
+            state.isLoading = true
+        }, 
         loginSuccess(state, payload) {
             state.LoggedIn = true;
             state.token = payload.token;
@@ -61,6 +58,13 @@ export const Login = {
         loginFailure(state, payload) {
             state.LoggedIn = false;
             state.errorMessage = payload
+            state.isLoading = false
+        },
+        resetState(state) {
+            state.LoggedIn = false;
+            state.token = null;
+            state.user = null;
+            state.errorMessage = null
             state.isLoading = false
         },
     }

@@ -1,6 +1,6 @@
 <template>
   <div v-if="dataCovid === null">
-    <Loading />
+    <LoadingComponent :tam="100"/>
   </div>
   <div v-else>
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 py-10">
@@ -12,13 +12,13 @@
 
 <script>
 import getCovid from "@/services/getCovid";
-import Loading from "@/components/layout/LoadingComponent";
+import LoadingComponent from "@/components/layout/LoadingComponent";
 import { ref } from "@vue/reactivity";
 import { provide, watchEffect } from "@vue/runtime-core";
 import CovidApiComponent from "./CovidApiComponent.vue";
 export default {
   components: {
-    Loading,
+    LoadingComponent,
     CovidApiComponent,
   },
   props: {

@@ -186,6 +186,7 @@
               <button
                 type="submit"
                 class="
+                  disabled:opacity-25
                   w-full
                   flex
                   justify-center
@@ -206,9 +207,21 @@
                   ease-in
                   duration-500
                 "
+                :disabled="
+                  !email || !password || this.$store.state.Login.isLoading
+                "
                 @click.prevent="signin"
               >
-                Ingresa
+                <span className="inline-block mr-2">
+                  <div
+                    v-if="this.$store.state.Login.isLoading"
+                    class="flex justify-center"
+                  >
+                    <LoadingComponent :tam="30" />
+                    <span>Cargando...</span>
+                  </div>
+                  <span v-else>Ingresa</span>
+                </span>
               </button>
             </div>
             <p
@@ -244,6 +257,7 @@
 </template>
 
 <script>
+import LoadingComponent from "@/components/layout/LoadingComponent.vue";
 export default {
   data() {
     return {
@@ -251,7 +265,10 @@ export default {
       password: null,
     };
   },
-  computed:{
+  components: {
+    LoadingComponent,
+  },
+  computed: {
     loggedIn() {
       return this.$store.state.Login.errorMessage;
     },
@@ -263,11 +280,11 @@ export default {
           email: this.email,
           password: this.password,
         });
-        if(user){
-          this.$router.push('/')
+        if (user) {
+          this.$router.push("/");
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     },
   },

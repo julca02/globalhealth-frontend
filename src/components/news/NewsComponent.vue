@@ -1,5 +1,5 @@
 <template>
-  <Loading v-if="listNews === null" />
+  <LoadingComponent :tam="100" v-if="listNews === null" />
   <div class="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
     <div
       v-for="item in listNews"
@@ -76,12 +76,12 @@
 
 <script>
 import News from "@/services/getNews";
-import Loading from "@/components/layout/LoadingComponent";
+import LoadingComponent from "@/components/layout/LoadingComponent";
 import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 export default {
   components: {
-    Loading,
+    LoadingComponent,
   },
   setup() {
     const listNews = ref(null);

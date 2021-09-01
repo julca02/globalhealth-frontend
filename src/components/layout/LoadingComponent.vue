@@ -2,7 +2,7 @@
   <SpringSpinner
     class="mx-auto"
     :animation-duration="3000"
-    :size="100"
+    :size="tam"
     :color="'#1424C4'"
   />
 </template>
@@ -13,6 +13,9 @@ export default {
   components: {
     SpringSpinner
   },
+  props:{
+    tam: Number
+  }
 };
 </script>
 
