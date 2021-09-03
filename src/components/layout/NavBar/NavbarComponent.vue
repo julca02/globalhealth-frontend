@@ -33,7 +33,7 @@
             >
               Informacion
             </router-link>
-            <NoticiasNavBar :responsive="true"/>
+            <NoticiasNavBar :responsive="true" />
           </PopoverGroup>
         </div>
         <div class="-mr-2 -my-2 md:hidden">
@@ -53,45 +53,49 @@
             "
           >
             <span class="sr-only">Abir Menu</span>
-            <font-awesome-icon icon="bars" size="lg" aria-hidden="true"/>
+            <font-awesome-icon icon="bars" size="lg" aria-hidden="true" />
           </PopoverButton>
         </div>
-        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 nav">
-          <NavProfile v-if="this.$store.state.Login.LoggedIn" :image="this.$store.state.Login.user.avatar"/>
+        <div
+          class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 nav"
+        >
+          <NavProfile v-if="this.$store.state.User.LoggedIn"
+          :image="this.$store.state.User.user.avatar.url ?
+          this.$store.state.User.user.avatar.url : '@/assets/noPhoto.png' "/>
           <div v-else>
             <router-link
-            to="/ingresa"
-            class="
-              whitespace-nowrap
-              text-base
-              font-medium
-              text-gray-500
-              hover:text-gray-900
-            "
-          >
-            Ingresa
-          </router-link>
-          <a
-            href="#"
-            class="
-              ml-8
-              whitespace-nowrap
-              inline-flex
-              items-center
-              justify-center
-              px-4
-              py-2
-              border border-transparent border-blue-800
-              rounded-md
-              shadow-sm
-              text-base
-              font-medium
-              bg-blue-900
-              text-white
-            "
-          >
-            Registrate
-          </a>
+              to="/ingresa"
+              class="
+                whitespace-nowrap
+                text-base
+                font-medium
+                text-gray-500
+                hover:text-gray-900
+              "
+            >
+              Ingresa
+            </router-link>
+            <a
+              href="#"
+              class="
+                ml-8
+                whitespace-nowrap
+                inline-flex
+                items-center
+                justify-center
+                px-4
+                py-2
+                border border-transparent border-blue-800
+                rounded-md
+                shadow-sm
+                text-base
+                font-medium
+                bg-blue-900
+                text-white
+              "
+            >
+              Registrate
+            </a>
           </div>
         </div>
       </div>
@@ -130,11 +134,7 @@
           <div class="pt-5 pb-6 px-5">
             <div class="flex items-center justify-between">
               <div>
-                <img
-                  class="h-8 w-auto"
-                  src="@/assets/logo.svg"
-                  alt="logo"
-                />
+                <img class="h-8 w-auto" src="@/assets/logo.svg" alt="logo" />
               </div>
               <div class="-mr-2">
                 <PopoverButton
@@ -153,7 +153,11 @@
                   "
                 >
                   <span class="sr-only">Cerrar menu</span>
-                  <font-awesome-icon icon="times" size="lg" aria-hidden="true"/>
+                  <font-awesome-icon
+                    icon="times"
+                    size="lg"
+                    aria-hidden="true"
+                  />
                 </PopoverButton>
               </div>
             </div>
@@ -174,12 +178,11 @@
                     {{ item.name }}
                   </span>
                 </router-link>
-                
               </nav>
             </div>
           </div>
           <div class="py-6 px-5 space-y-6">
-            <NoticiasNavBar/>
+            <NoticiasNavBar />
             <div class="nav">
               <a
                 href="#"
@@ -225,7 +228,7 @@ import {
   PopoverPanel,
 } from "@headlessui/vue";
 import NoticiasNavBar from "./NoticiasNavBar.vue";
-import NavProfile from '../../profile/NavProfile.vue';
+import NavProfile from "../../profile/NavProfile.vue";
 
 const solutions = [
   {

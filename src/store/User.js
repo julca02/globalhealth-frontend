@@ -1,4 +1,5 @@
-import { login, profile } from '../services/getUsers';
+import { login, profile, updateProfile } from '../services/getUsers';
+import router from "../router";
 
 const token = localStorage.getItem('token')
 const user = JSON.parse(localStorage.getItem('user'))
@@ -10,7 +11,7 @@ const initialState = {
     LoggedIn: Boolean(token),
     errorMessage: null
 };
-export const Login = {
+export const User = {
     state: initialState,
     actions: {
         async login({ commit }, user) {
@@ -41,13 +42,30 @@ export const Login = {
         logout({ commit }) {
             localStorage.removeItem('token')
             localStorage.removeItem('user')
+            router.push('/ingresa')
             commit('resetState');
         },
+        async update({ commit }, userData) {
+            commit('update')
+            try {
+                await updateProfile(userData, user._id, token)
+                const userUpdate = await profile(token)
+                localStorage.setItem('user', JSON.stringify(userUpdate.data))
+                commit('updateUserSuccess', { user: userUpdate.data });
+
+                return userUpdate.data
+
+            } catch (error) {
+                if (error.response.data) {
+                    commit('updateUserFailure', { payload: error.response.data.message })
+                }
+            }
+        }
     },
     mutations: {
-        login(state){
+        login(state) {
             state.isLoading = true
-        }, 
+        },
         loginSuccess(state, payload) {
             state.LoggedIn = true;
             state.token = payload.token;
@@ -65,6 +83,17 @@ export const Login = {
             state.token = null;
             state.user = null;
             state.errorMessage = null
+            state.isLoading = false
+        },
+        update(state) {
+            state.isLoading = true
+        },
+        updateUserSuccess(state, payload) {
+            state.isLoading = false,
+                state.user = payload
+        },
+        updateUserFailure(state, payload) {
+            state.errorMessage = payload
             state.isLoading = false
         },
     }

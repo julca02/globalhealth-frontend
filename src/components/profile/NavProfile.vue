@@ -42,13 +42,13 @@
         "
       >
         <MenuItem v-slot="{ active }">
-          <a
-            href="#"
+          <router-link
+            to="/perfil"
             :class="[
               active ? 'bg-gray-100' : '',
               'block px-4 py-2 text-sm text-gray-700',
             ]"
-            >Perfil</a
+            >Perfil</router-link
           >
         </MenuItem>
         <MenuItem v-slot="{ active }">

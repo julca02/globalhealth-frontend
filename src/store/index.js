@@ -1,10 +1,10 @@
 import { createStore } from "vuex";
-import { Login } from './Login';
+import { User } from './User';
 
 
 const store = createStore({
     modules: {
-        Login
+        User
     }
 })
 

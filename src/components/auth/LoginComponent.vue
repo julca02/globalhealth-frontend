@@ -208,13 +208,13 @@
                   duration-500
                 "
                 :disabled="
-                  !email || !password || this.$store.state.Login.isLoading
+                  !email || !password || this.$store.state.User.isLoading
                 "
                 @click.prevent="signin"
               >
                 <span className="inline-block mr-2">
                   <div
-                    v-if="this.$store.state.Login.isLoading"
+                    v-if="this.$store.state.User.isLoading"
                     class="flex justify-center"
                   >
                     <LoadingComponent :tam="30" />
@@ -270,7 +270,7 @@ export default {
   },
   computed: {
     loggedIn() {
-      return this.$store.state.Login.errorMessage;
+      return this.$store.state.User.errorMessage;
     },
   },
   methods: {
