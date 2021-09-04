@@ -7,7 +7,7 @@
             <img
               class="w-auto h-20 object-cover rounded-full"
               alt="User avatar"
-              :src="avatarRender ? avatarRender : user.avatar.url"
+              :src="avatarRender ? avatarRender : user.avatar"
             />
             <label class="cursor-pointer mt-16">
               <span
@@ -41,16 +41,39 @@
             items-center
           "
         >
-          <h2 class="md:w-1/3 max-w-sm mx-auto">Cuenta</h2>
-          <div class="md:w-2/3 max-w-sm mx-auto">
-            <label class="text-sm text-gray-400">Email</label>
-            <div class="w-full inline-flex border">
+          <h2 class="md:w-1/3 max-w-sm mx-auto nav">Cuenta</h2>
+          <div class="w-full flex flex-col mb-3">
+            <label class="font-semibold text-gray-600 py-2">Email</label>
+            <div class="flex relative">
               <input
                 type="email"
-                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                class="
+                  block
+                  w-full
+                  bg-grey-lighter
+                  text-grey-darker
+                  border border-grey-lighter
+                  rounded-lg
+                  h-10
+                  px-4
+                  md:w-full
+                "
                 :value="user.email"
                 disabled
               />
+              <div
+                class="
+                  absolute
+                  inset-y-0
+                  right-0
+                  pr-3
+                  flex
+                  items-center
+                  pointer-events-none
+                "
+              >
+                <font-awesome-icon icon="at" class="w-6 mx-auto" />
+              </div>
             </div>
           </div>
         </div>
@@ -67,31 +90,127 @@
             items-center
           "
         >
-          <h2 class="md:w-1/3 mx-auto max-w-sm">Informacion personal</h2>
+          <h2 class="md:w-1/3 mx-auto max-w-sm nav">Informacion personal</h2>
           <div class="md:w-2/3 mx-auto max-w-sm space-y-5">
-            <div>
-              <label class="text-sm text-gray-400">Nombre completo</label>
-              <div class="w-full inline-flex border">
+            <div class="w-full flex flex-col mb-3">
+              <label class="font-semibold text-gray-600 py-2"
+                >Nombre completo</label
+              >
+              <div class="flex relative">
                 <input
                   type="text"
-                  class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                  class="
+                    block
+                    w-full
+                    bg-grey-lighter
+                    text-grey-darker
+                    border border-grey-lighter
+                    rounded-lg
+                    h-10
+                    px-4
+                    md:w-full
+                  "
                   :placeholder="user.name"
                   v-model="name"
                   required
                 />
+                <div
+                  class="
+                    absolute
+                    inset-y-0
+                    right-0
+                    pr-3
+                    flex
+                    items-center
+                    pointer-events-none
+                  "
+                >
+                  <font-awesome-icon icon="user" class="w-6 mx-auto" />
+                </div>
               </div>
             </div>
-            <div>
-              <label class="text-sm text-gray-400">Numero de celular</label>
-              <div class="w-full inline-flex border">
-                <input
-                  type="number"
-                  class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                  :placeholder="user.phone"
-                  v-model="phone"
-                  required
-                />
+            <div class="w-full flex flex-col mb-3">
+              <label class="font-semibold text-gray-600 py-2"
+                >Numero de celular</label
+              >
+              <div class="flex relative">
+
+              <input
+                type="number"
+                class="
+                  block
+                  w-full
+                  bg-grey-lighter
+                  text-grey-darker
+                  border border-grey-lighter
+                  rounded-lg
+                  h-10
+                  px-4
+                  md:w-full
+                "
+                :placeholder="user.phone"
+                v-model="phone"
+                required
+              />
+              <div
+                  class="
+                    absolute
+                    inset-y-0
+                    right-0
+                    pr-3
+                    flex
+                    items-center
+                    pointer-events-none
+                  "
+                >
+                  <font-awesome-icon icon="phone" class="w-6 mx-auto" />
+                </div>
               </div>
+            </div>
+            <div class="w-full flex flex-col mb-3">
+              <label class="font-semibold text-gray-600 py-2"
+                >Fecha de nacimiento</label
+              >
+              <input
+                type="date"
+                class="
+                  block
+                  w-full
+                  bg-grey-lighter
+                  text-grey-darker
+                  border border-grey-lighter
+                  rounded-lg
+                  h-10
+                  px-4
+                  md:w-full
+                "
+                min="1900-01-01" max="2020-12-31"
+                :disabled="user.birth"
+                v-model="birth"
+                required
+              />
+            </div>
+            <div class="w-full flex flex-col mb-3">
+              <label class="font-semibold text-gray-600 py-2">Genero</label>
+              <select
+                class="
+                  block
+                  w-full
+                  bg-grey-lighter
+                  text-grey-darker
+                  border border-grey-lighter
+                  rounded-lg
+                  h-10
+                  px-4
+                  md:w-full
+                "
+                v-model="gender"
+              >
+                <option value="" disabled>{{user.gender}}</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="No binario">No binario</option>
+              </select>
             </div>
           </div>
         </div>
@@ -138,7 +257,7 @@
                 w-full
                 mx-auto
                 max-w-sm
-                rounded-md
+                rounded-3xl
                 text-center
                 bg-blue-500
                 py-2
@@ -148,7 +267,7 @@
                 ease-in
                 duration-500
               "
-              :disabled="!name || !phone || this.$store.state.User.isLoading"
+              :disabled="this.$store.state.User.isLoading || !name"
               @click.prevent="updateUser"
             >
               <span className="inline-block mr-2">
@@ -196,20 +315,32 @@ export default {
   props: {
     user: Object,
   },
-  setup() {
-    const name = ref();
-    const phone = ref();
+  setup(props) {
+    const name = ref(props.user.name);
+    const phone = ref(props.user.phone || 57);
+    const birth = ref()
+    const gender = ref('')
     const avatar = ref(null);
     const avatarRender = ref(null);
 
     const store = useStore();
-    const updateUser = async() => {
+    const updateUser = async () => {
       const formData = new FormData();
       formData.append("name", name.value);
-      formData.append("phone", phone.value);
-      formData.append("avatar", avatar.value);
+      const expresion = /^3[\d]{9}$/
+      if (expresion.test(phone.value)) {
+        formData.append("phone", phone.value);
+      }
+      if (avatar.value != null) {
+        formData.append("avatar", avatar.value);
+      }
+      if(gender.value.length > 1){
+        formData.append("gender", gender.value)
+      } 
+      const vregexNaix = /^\d{4}-\d{2}-\d{2}$/
+      if(vregexNaix.test(birth.value)) formData.append("birth", birth.value)
 
-      await store.dispatch( "update", formData);
+      await store.dispatch("update", formData);
     };
     const onFileChange = (e) => {
       const files = e.target.files[0];
@@ -219,6 +350,8 @@ export default {
     return {
       name,
       phone,
+      birth, 
+      gender,
       avatarRender,
       updateUser,
       onFileChange,
