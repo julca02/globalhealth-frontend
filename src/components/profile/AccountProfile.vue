@@ -306,8 +306,9 @@
 
 <script>
 import { useStore } from "vuex";
-import LoadingComponent from "@/components/layout/LoadingComponent.vue";
 import { ref } from "@vue/reactivity";
+import LoadingComponent from "@/components/layout/LoadingComponent.vue";
+import NotifyComponent from '@/components/layout/NotifyComponent.js'
 export default {
   components: {
     LoadingComponent,
@@ -341,6 +342,7 @@ export default {
       if(vregexNaix.test(birth.value)) formData.append("birth", birth.value)
 
       await store.dispatch("update", formData);
+      NotifyComponent.editProfile(`<h3 class="py-4 text-base">Usuario actualizado✍️, recarga para ver cambios</h3>`)
     };
     const onFileChange = (e) => {
       const files = e.target.files[0];

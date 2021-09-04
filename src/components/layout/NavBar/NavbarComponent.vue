@@ -60,8 +60,8 @@
           class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 nav"
         >
           <NavProfile v-if="this.$store.state.User.LoggedIn"
-          :image="this.$store.state.User.user.avatar ?
-          this.$store.state.User.user.avatar : '@/assets/noPhoto.png' "/>
+          :image="this.$store.state.User.user ?
+          this.$store.state.User.user.avatar : noPhoto "/>
           <div v-else>
             <router-link
               to="/ingresa"
@@ -229,6 +229,7 @@ import {
 } from "@headlessui/vue";
 import NoticiasNavBar from "./NoticiasNavBar.vue";
 import NavProfile from "../../profile/NavProfile.vue";
+import noPhoto from '@/assets/noPhoto.png'
 
 const solutions = [
   {
@@ -261,6 +262,7 @@ export default {
   setup() {
     return {
       solutions,
+      noPhoto
     };
   },
 };

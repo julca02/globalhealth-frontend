@@ -56,9 +56,10 @@ export const User = {
                 return userUpdate.data
 
             } catch (error) {
-                if (error.response.data) {
+                console.log(error)
+                /* if (error) {
                     commit('updateUserFailure', { payload: error.response.data.message })
-                }
+                } */
             }
         }
     },

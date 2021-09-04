@@ -51,6 +51,16 @@
             >Perfil</router-link
           >
         </MenuItem>
+        <MenuItem v-slot="{ active }" v-if="this.$store.state.User.user.rol.name !== 'Paciente'">
+          <router-link
+            to="/auth"
+            :class="[
+              active ? 'bg-gray-100' : '',
+              'block px-4 py-2 text-sm text-gray-700',
+            ]"
+            >Administacion</router-link
+          >
+        </MenuItem>
         <MenuItem v-slot="{ active }">
           <button
             @click="logoutUser"
