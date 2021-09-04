@@ -44,7 +44,7 @@
                   GlobalHealth, bienvenidos a nuestra plataforma de salud.<br
                     class="hidden md:block"
                   />
-                  Mejora tu experiencia en tramines.
+                  Mejora tu experiencia en tramites.
                 </h2>
 
                 <p class="text-base text-gray-700 md:text-lg nav">

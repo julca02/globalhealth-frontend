@@ -258,6 +258,7 @@
 
 <script>
 import LoadingComponent from "@/components/layout/LoadingComponent.vue";
+import NotifyComponent from '@/components/layout/NotifyComponent.js'
 export default {
   data() {
     return {
@@ -282,6 +283,7 @@ export default {
         });
         if (user) {
           this.$router.push("/");
+          NotifyComponent.login(`<h3 class="py-3 font-medium text-base">Hola, <b>${user.name}</b>👨🏻‍🏭</h3>`)
         }
       } catch (error) {
         console.log(error);

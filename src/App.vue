@@ -3,6 +3,7 @@
     <NavbarComponent />
   </div>
   <router-view />
+  <notifications position="bottom right" width="400"/>
   <FooterComponent />
 </template>
 

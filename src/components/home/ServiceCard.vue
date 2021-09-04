@@ -35,7 +35,7 @@
       </div>
       <div class="lg:w-1/2">
         <p class="text-base text-gray-700 md:text-lg">
-          Nuestro servicios se enfocan en mejorar su atención en salud, evitando tramites y demoras. que obstaculizan una buena prestacíon de salud .
+          Nuestro servicios se enfocan en mejorar su atención en salud, evitando tramites y demoras que obstaculizan una buena prestacíon de salud.
         </p>
       </div>
     </div>
@@ -109,7 +109,7 @@ const servicesCard = [
   {
     name: "Historial clinico",
     abstract:
-      "Podrás visualizar de forma fácil y sencilla toda la documentación digital de tu historial clinico (procedimiento,medicación y personal medico .",
+      "Podrás visualizar de forma fácil y sencilla toda la documentación digital de tu historial clinico (procedimiento,medicación y personal medico.",
     href: "/",
     icon: "stethoscope",
   },
@@ -123,7 +123,7 @@ const servicesCard = [
   {
     name: "Covid",
     abstract:
-      "Tendrás las posibilidad de visulizar en tiempo real los casos nuevos, muertos y recuperados por convid en colombia y en todo el mundo.",
+      "Tendrás las posibilidad de visulizar en tiempo real los casos nuevos, muertos y recuperados por covid en colombia y en todo el mundo.",
     href: "/covid-noticias",
     icon: "virus",
   },

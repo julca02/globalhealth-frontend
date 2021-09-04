@@ -38,7 +38,7 @@ export default {};
 
 <style scoped>
 .login{
-  background-image: url('http://assets.stickpng.com/images/589c81c364b351149f22a823.png');
+  background-image: url('https://res.cloudinary.com/dpdklk8ze/image/upload/v1630771662/589c81c364b351149f22a823_d86ncl.png');
   background-repeat: no-repeat;
   background-size: 25%;
   background-position-x: 75%;
