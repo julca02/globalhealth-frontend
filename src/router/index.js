@@ -39,6 +39,12 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+
+  {
+    path: "/:catchAll(.*)",
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "login" */'../components/layout/NotFound.vue'),
   }
 ]
 
