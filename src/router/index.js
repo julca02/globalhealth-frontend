@@ -9,6 +9,11 @@ const routes = [
     component: Home
   },
   {
+    path: "/:catchAll(.*)",
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "login" */'../components/layout/NotFound.vue'),
+  },
+  {
     path: '/informacion',
     name: 'Informacion',
     // route level code-splitting
@@ -31,7 +36,7 @@ const routes = [
     path: '/ingresa',
     name: 'Login',
     component: () => import(/* webpackChunkName: "login" */'../views/Login.vue')
-  }, 
+  },
   {
     path: '/perfil',
     name: 'Perfil',
@@ -41,28 +46,23 @@ const routes = [
     }
   },
   {
-    path: "/:catchAll(.*)",
-    name: 'NotFound',
-    component: () => import(/* webpackChunkName: "login" */'../components/layout/NotFound.vue'),
-  }, 
-  {
-      path: '/auth',
-      name: 'Auth',
-      component: () => import(/* webpackChunkName: "Auth" */'../views/auth/Auth.vue'),
-      meta: {
-        requiresAuth: true
-      },
-      children: [
-        {
-          path: 'medical-history',
-          name: 'MedicalHistory',
-          component: () => import(/* webpackChunkName: "MedicalHistory" */ '../views/auth/MedicalHistory.vue'),
-          meta: {
-            requiresAuth: true
-          }
+    path: '/auth/',
+    name: 'Auth',
+    component: () => import(/* webpackChunkName: "Auth" */'../views/auth/Auth.vue'),
+    meta: {
+      requiresAuth: true
+    },
+    children: [
+      {
+        path: 'medical-history',
+        name: 'MedicalHistory',
+        component: () => import(/* webpackChunkName: "MedicalHistory" */ '../views/auth/MedicalHistory.vue'),
+        meta: {
+          requiresAuth: true
         }
-      ]
-    }
+      }
+    ]
+  }
 ]
 
 const router = createRouter({

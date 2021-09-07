@@ -12,7 +12,7 @@
         "
       >
         <div class="flex lg:w-0 lg:flex-1 items-center space-x-10 nav">
-          <a href="/#">
+          <a href="/">
             <span class="sr-only">GlobalHealth</span>
             <img
               class="h-8 w-auto sm:h-10"
@@ -208,7 +208,7 @@
               <p class="mt-6 text-center text-base font-medium text-gray-500">
                 Tienes usuario?
                 {{ " " }}
-                <a href="#" class="text-indigo-600 hover:text-indigo-500">
+                <a href="/ingresa" class="text-indigo-600 hover:text-indigo-500">
                   Ingresa
                 </a>
               </p>
