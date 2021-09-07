@@ -37,10 +37,10 @@
                 "
                 >Inicio</router-link
               >
-              <router-link
-                to="/blog"
+              <a
+                href="/blog"
                 class="text-base font-medium text-gray-50 hover:text-gray-300"
-                >Blog</router-link
+                >Blog</a
               >
               <router-link
                 to="/noticias"
