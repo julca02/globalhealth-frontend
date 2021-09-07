@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import store from '../store'
 import Home from '../views/Home.vue'
 
@@ -40,17 +40,33 @@ const routes = [
       requiresAuth: true
     }
   },
-
   {
     path: "/:catchAll(.*)",
     name: 'NotFound',
     component: () => import(/* webpackChunkName: "login" */'../components/layout/NotFound.vue'),
-  }
+  }, 
+  {
+      path: '/auth',
+      name: 'Auth',
+      component: () => import(/* webpackChunkName: "Auth" */'../views/auth/Auth.vue'),
+      meta: {
+        requiresAuth: true
+      },
+      children: [
+        {
+          path: 'medical-history',
+          name: 'MedicalHistory',
+          component: () => import(/* webpackChunkName: "MedicalHistory" */ '../views/auth/MedicalHistory.vue'),
+          meta: {
+            requiresAuth: true
+          }
+        }
+      ]
+    }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  base: process.env.BASE_URL,
+  history: createWebHistory(),
   routes
 })
 
