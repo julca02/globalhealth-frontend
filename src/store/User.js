@@ -1,4 +1,4 @@
-import { login, profile, updateProfile } from '../services/getUsers';
+import { register, login, profile, updateProfile } from '../services/getUsers';
 import router from "../router";
 
 const token = localStorage.getItem('token')
@@ -61,6 +61,17 @@ export const User = {
                     commit('updateUserFailure', { payload: error.response.data.message })
                 } */
             }
+        },
+        async register({commit}, user){
+            commit('register')
+            try {
+                const userRegister = await register(user)
+                console.log(userRegister)
+            } catch (error) {
+                if (error.response.data) {
+                    commit('registerFailure', { payload: error.response.data.message })
+                }
+            }
         }
     },
     mutations: {
@@ -97,6 +108,16 @@ export const User = {
             state.errorMessage = payload
             state.isLoading = false
         },
+        register(state){
+            state.isLoading = true
+        },
+        registerSuccess(state){
+            state.isLoading = false
+        },
+        registerFailure(state, payload){
+            state.errorMessage = payload
+            state.isLoading = false
+        }
     }
 }
 
