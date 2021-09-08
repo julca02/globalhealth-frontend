@@ -44,7 +44,6 @@
               mb-10
             "
           >
-           <div class="animate-ping w-1 h-20">🙃</div>
             404 Estamos perdidas, perdidas 
           </h1>
           <p>La ruta ingresada no fue encontrada.</p>
