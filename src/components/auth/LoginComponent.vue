@@ -2,7 +2,7 @@
   <div class="relative min-h-screen flex">
     <div
       class="
-        flex flex-col
+        flex
         sm:flex-row
         items-center
         md:items-start
@@ -25,13 +25,12 @@
           justify-center
           p-10
           overflow-hidden
-          bg-purple-900
           text-white
           bg-no-repeat bg-cover
           relative
         "
         style="
-          background-image: url(https://static.vecteezy.com/system/resources/previews/001/206/141/original/doctors-png.png);
+          background-image: url(https://coecadiz.com/wp-content/uploads/2018/06/fondo-login-web.jpg);
         "
       >
         <div
@@ -46,8 +45,18 @@
           "
         ></div>
         <div class="w-full max-w-md z-10">
-          <div class="sm:text-4xl xl:text-5xl font-bold leading-tight mb-6">
-            Globalhealth
+          <div
+            class="
+              sm:text-4xl
+              xl:text-5xl
+              font-bold
+              leading-tight
+              mb-6
+              uppercase
+              nav
+            "
+          >
+            Ingreso de usuario 
           </div>
           <div class="sm:text-sm xl:text-md text-gray-200 font-normal">
             What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing
@@ -60,20 +69,19 @@
       </div>
       <div
         class="
+          h-screen
           md:flex
           md:items-center
           md:justify-center
           w-full
           sm:w-auto
-          md:h-full
-          w-2/5
           xl:w-2/5
           p-8
           md:p-10
           lg:p-14
           sm:rounded-lg
           md:rounded-none
-          bg-white
+          bg-blue-50
         "
       >
         <div class="max-w-md w-full space-y-8">
@@ -85,8 +93,7 @@
           </div>
           <div class="flex flex-row justify-center items-center space-x-3">
             <a
-              href="https://www.behance.net/ajeeshmon"
-              target="_blank"
+              href="#"
               class="
                 w-11
                 h-11
@@ -103,7 +110,9 @@
                 ease-in
                 duration-300
               "
-              ><img class="w-4 h-4" src="" alt=""
+              ><font-awesome-icon
+                :icon="['fab', 'google']"
+                class="w-6 mx-auto text-white"
             /></a>
           </div>
           <div class="flex items-center justify-center space-x-2">
@@ -111,69 +120,87 @@
             <span class="text-gray-300 font-normal">o</span>
             <span class="h-px w-16 bg-gray-200"></span>
           </div>
-          <form class="mt-8 space-y-6" action="#" method="POST">
-            <input type="hidden" name="remember" value="true" />
+          <form class="mt-8 space-y-6">
             <div class="relative">
-              <div class="absolute right-3 mt-4">
-                <font-awesome-icon
-                  icon="asterisk"
-                  size="xs"
-                  class="text-blue-500"
-                />
-              </div>
               <p v-if="loggedIn" class="text-xs text-red-500 text-center">
                 {{ loggedIn.payload }}*
               </p>
               <label
-                class="ml-3 text-sm font-bold text-gray-700 tracking-wide"
+                class="ml-3 text-sm font-bold text-gray-500 tracking-wide"
                 for="email"
                 >Email</label
               >
-              <input
-                class="
-                  w-full
-                  text-base
-                  px-4
-                  py-2
-                  border-b border-gray-300
-                  focus:outline-none
-                  rounded-2xl
-                  focus:border-blue-500
-                "
-                id="email"
-                autofocus
-                type="email"
-                placeholder="mail@example.com"
-                required
-                v-model="email"
-              />
+              <div class="relative">
+                <input
+                  class="
+                    w-full
+                    text-base
+                    px-4
+                    py-2
+                    border-b border-gray-300
+                    focus:outline-none
+                    rounded-lg
+                    focus:border-blue-500
+                  "
+                  id="email"
+                  autofocus
+                  type="email"
+                  placeholder="mail@example.com"
+                  required
+                  v-model="data.email"
+                />
+                <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                  <font-awesome-icon
+                    icon="user"
+                    class="w-6 mx-auto text-blue-600"
+                  />
+                </div>
+              </div>
             </div>
             <div class="mt-8 content-center">
               <label
-                class="ml-3 text-sm font-bold text-gray-700 tracking-wide"
+                class="ml-3 text-sm font-bold text-gray-500 tracking-wide"
                 for="password"
               >
                 Contraseña
               </label>
-              <input
-                class="
-                  w-full
-                  content-center
-                  text-base
-                  px-4
-                  py-2
-                  border-b
-                  rounded-2xl
-                  border-gray-300
-                  focus:outline-none
-                  focus:border-blue-500
-                "
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                required
-                v-model="password"
-              />
+              <div class="relative">
+                <input
+                  class="
+                    w-full
+                    content-center
+                    text-base
+                    px-4
+                    py-2
+                    border-b
+                    rounded-lg
+                    border-gray-300
+                    focus:outline-none
+                    focus:border-blue-500
+                  "
+                  type="password"
+                  id="password"
+                  placeholder="Enter your password"
+                  required
+                  v-model="data.password"
+                />
+                <div
+                  class="
+                    absolute
+                    inset-y-0
+                    right-0
+                    pr-3
+                    flex
+                    items-center
+                    pointer-events-none
+                  "
+                >
+                  <font-awesome-icon
+                    icon="key"
+                    class="w-6 mx-auto text-blue-600"
+                  />
+                </div>
+              </div>
             </div>
             <div class="flex items-center justify-end">
               <div class="text-sm">
@@ -197,7 +224,7 @@
                   hover:from-blue-600
                   hover:to-blue-800
                   text-gray-100
-                  p-4
+                  p-3
                   rounded-full
                   tracking-wide
                   font-semibold
@@ -206,9 +233,12 @@
                   transition
                   ease-in
                   duration-500
+                  nav
                 "
                 :disabled="
-                  !email || !password || this.$store.state.User.isLoading
+                  !data.email ||
+                  !data.password ||
+                  this.$store.state.User.isLoading
                 "
                 @click.prevent="signin"
               >
@@ -220,35 +250,10 @@
                     <LoadingComponent :tam="30" />
                     <span>Cargando...</span>
                   </div>
-                  <span v-else>Ingresa</span>
+                  <span v-else>INGRESA</span>
                 </span>
               </button>
             </div>
-            <p
-              class="
-                flex flex-col
-                items-center
-                justify-center
-                mt-10
-                text-center text-md text-gray-500
-              "
-            >
-              <span>No tienes cuenta?</span>
-              <a
-                href="#"
-                class="
-                  text-indigo-400
-                  hover:text-blue-500
-                  no-underline
-                  hover:underline
-                  cursor-pointer
-                  transition
-                  ease-in
-                  duration-300
-                "
-                >Registrate</a
-              >
-            </p>
           </form>
         </div>
       </div>
@@ -257,38 +262,43 @@
 </template>
 
 <script>
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 import LoadingComponent from "@/components/layout/LoadingComponent.vue";
-import NotifyComponent from '@/components/layout/NotifyComponent.js'
+import NotifyComponent from "@/components/layout/NotifyComponent.js";
+import { computed, reactive } from "@vue/reactivity";
 export default {
-  data() {
-    return {
-      email: null,
-      password: null,
-    };
-  },
   components: {
     LoadingComponent,
   },
-  computed: {
-    loggedIn() {
-      return this.$store.state.User.errorMessage;
-    },
-  },
-  methods: {
-    async signin() {
+  setup() {
+    const store = useStore();
+    const router = useRouter();
+    const data = reactive({
+      email: "",
+      password: "",
+    });
+    const loggedIn = computed(() => {
+      return store.state.User.errorMessage;
+    });
+    const signin = async () => {
       try {
-        const user = await this.$store.dispatch("login", {
-          email: this.email,
-          password: this.password,
-        });
+        const user = await store.dispatch("login", data);
         if (user) {
-          this.$router.push("/");
-          NotifyComponent.login(`<h3 class="py-3 font-medium text-base">Hola, <b>${user.name}</b>👨🏻‍🏭</h3>`)
+          router.push("/");
+          NotifyComponent.login(
+            `<h3 class="py-3 font-medium text-base">Hola, <b>${user.name}</b>👨🏻‍🏭</h3>`
+          );
         }
       } catch (error) {
         console.log(error);
       }
-    },
+    };
+    return {
+      data,
+      loggedIn,
+      signin,
+    };
   },
 };
 </script>
