@@ -1,4 +1,4 @@
 <template>
-  <h1>Por fa funciona</h1>
+  <h1>Historial medico</h1>
 </template>
 

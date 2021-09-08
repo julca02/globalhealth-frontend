@@ -60,6 +60,14 @@ const routes = [
         meta: {
           requiresAuth: true
         }
+      },
+      {
+        path: 'register-user',
+        name: 'RegisterUser',
+        component: () => import(/* webpackChunkName: "MedicalHistory" */ '../views/auth/Register.vue'),
+        meta: {
+          requiresAuth: true
+        }
       }
     ]
   }
