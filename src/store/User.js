@@ -66,7 +66,10 @@ export const User = {
             commit('register')
             try {
                 const userRegister = await register(user)
-                console.log(userRegister)
+                if(userRegister) {
+                    commit('registerSuccess')
+                }
+                return userRegister.data
             } catch (error) {
                 if (error.response.data) {
                     commit('registerFailure', { payload: error.response.data.message })
