@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="nav">
+    <NavbarComponent />
+  </div>
+  <router-view />
+  <notifications position="bottom right" width="400"/>
+  <FooterComponent />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import NavbarComponent from "./components/layout/NavBar/NavbarComponent.vue";
+import FooterComponent from "@/components/layout/Footer/FooterComponent.vue";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    NavbarComponent,
+    FooterComponent,
+  },
+};
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap');
+.title {
+  font-family: "Montserrat", sans-serif;
+}
+.nav {
+  font-family: 'Urbanist', sans-serif;
 }
 </style>
+
