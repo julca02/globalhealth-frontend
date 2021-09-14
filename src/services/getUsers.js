@@ -1,24 +1,37 @@
 import axios from "axios";
 import { API_GLOBALHEALTH } from "./settings";
 
+const userAxios = axios.create({
+  baseURL: `${API_GLOBALHEALTH}/usuario`,
 
-export const register = async (user) => await axios.post(`${API_GLOBALHEALTH}/usuario/register`, user)
-
-export const login = async (user) =>
-  await axios.post(`${API_GLOBALHEALTH}/usuario/login`, user)
-
-export const profile = async (token) => await axios.get(`${API_GLOBALHEALTH}/usuario/profile`, {
-  headers: {
-    token
-  }
+})
+userAxios.interceptors.request.use(function (config) {
+  config.headers.token = `${localStorage.getItem('token')}`
+  return config;
+}, function (error) {
+  return Promise.reject(error)
 })
 
-export const updateProfile = async (user, id) =>{
-
-  const token = localStorage.getItem('token')
-  await axios.put(`${API_GLOBALHEALTH}/usuario/update/${id}`, user, {
-    headers: {
-      token
-    }
-  })
+const fromApiResponseToUsers = apiResponse => {
+  const data = apiResponse.data
+  if (Array.isArray(data)) {
+      const users = data.map(userItem => {
+          const { name, email, phone, createdAt, gender } = userItem
+          const dateFormat = new Date(createdAt).toLocaleString()
+          return { name, email, phone, dateFormat, gender }
+      })
+      return users
+  }
+  return []
 }
+
+export const getUsers = async (rol) => await userAxios.post(`/list/`, {rol}).then(res => fromApiResponseToUsers(res))
+
+export const register = async (user) => await userAxios.post(`/register`, user)
+
+export const login = async (user) => await userAxios.post(`/login`, user)
+
+export const profile = async () => await userAxios.get(`/profile`)
+
+export const updateProfile = async (user, id) => await userAxios.put(`/update/${id}`, user)
+

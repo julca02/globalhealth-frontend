@@ -24,7 +24,7 @@ export const User = {
                 localStorage.setItem("token", token)
 
                 if (token) {
-                    const user = await profile(token)
+                    const user = await profile()
                     localStorage.setItem('user', JSON.stringify(user.data))
 
                     commit('loginSuccess', { token, user: user.data });
