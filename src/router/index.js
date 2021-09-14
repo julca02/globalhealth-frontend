@@ -81,7 +81,13 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (store.state.User.LoggedIn) {
-      next();
+      if (store.state.User.user && store.state.User.user.rol.name === 'Admin') {
+        next();
+      } else if (store.state.User.user && store.state.User.user.rol.name === 'Doctor') {
+        next();
+      } else {
+        next({ name: "Home" });
+      }
     } else {
       next({ name: "Login" });
     }

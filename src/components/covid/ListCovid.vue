@@ -1,6 +1,6 @@
 <template>
   <div v-if="dataCovid === null">
-    <LoadingComponent :tam="100"/>
+    <LoadingComponent tam="6x"/>
   </div>
   <div v-else>
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 py-10">
