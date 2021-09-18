@@ -1,4 +1,10 @@
 <template>
-  <h1>Historial medico</h1>
+  <ListUsers />
 </template>
 
+<script>
+import ListUsers from "@/components/medicalHistory/ListUsers.vue";
+export default {
+  components: { ListUsers },
+};
+</script>

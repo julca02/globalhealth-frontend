@@ -3,9 +3,17 @@
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-12">
         <h1
-          class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+          class="
+            sm:text-3xl
+            text-2xl
+            font-medium
+            title-font
+            mb-4
+            text-gray-900
+            title
+          "
         >
-          Por favor, registar cada globalhealthiano
+          Registra a tus pacientes!
         </h1>
       </div>
       <form @click.prevent="" class="lg:w-1/2 md:w-2/3 mx-auto">
@@ -15,7 +23,9 @@
         <div class="flex flex-wrap -m-2">
           <div class="p-2 w-full">
             <div class="relative">
-              <label for="name" class="leading-7 text-sm text-gray-600"
+              <label
+                for="name"
+                class="text-sm font-bold text-gray-500 tracking-wide"
                 >Nombre</label
               >
               <input
@@ -25,13 +35,13 @@
                 name="name"
                 class="
                   w-full
-                  bg-gray-100 bg-opacity-50
-                  rounded
-                  border border-gray-300
-                  focus:border-indigo-500
-                  focus:bg-white
-                  focus:ring-2 focus:ring-indigo-200
+                  bg-gray-100
                   text-base
+                  rounded-lg
+                  border border-gray-300
+                  focus:border-blue-500
+                  focus:bg-white
+                  focus:ring-2 focus:ring-blue-200
                   outline-none
                   text-gray-700
                   py-1
@@ -46,7 +56,9 @@
           </div>
           <div class="p-2 w-full">
             <div class="relative">
-              <label for="email" class="leading-7 text-sm text-gray-600"
+              <label
+                for="email"
+                class="text-sm font-bold text-gray-500 tracking-wide"
                 >Email</label
               >
               <input
@@ -56,13 +68,13 @@
                 name="email"
                 class="
                   w-full
-                  bg-gray-100 bg-opacity-50
-                  rounded
-                  border border-gray-300
-                  focus:border-indigo-500
-                  focus:bg-white
-                  focus:ring-2 focus:ring-indigo-200
+                  bg-gray-100
                   text-base
+                  rounded-lg
+                  border border-gray-300
+                  focus:border-blue-500
+                  focus:bg-white
+                  focus:ring-2 focus:ring-blue-200
                   outline-none
                   text-gray-700
                   py-1
@@ -77,7 +89,9 @@
           </div>
           <div class="p-2 w-full">
             <div class="relative">
-              <label for="password" class="leading-7 text-sm text-gray-600"
+              <label
+                for="password"
+                class="text-sm font-bold text-gray-500 tracking-wide"
                 >Contraseña</label
               >
               <input
@@ -87,13 +101,13 @@
                 name="password"
                 class="
                   w-full
-                  bg-gray-100 bg-opacity-50
-                  rounded
-                  border border-gray-300
-                  focus:border-indigo-500
-                  focus:bg-white
-                  focus:ring-2 focus:ring-indigo-200
+                  bg-gray-100
                   text-base
+                  rounded-lg
+                  border border-gray-300
+                  focus:border-blue-500
+                  focus:bg-white
+                  focus:ring-2 focus:ring-blue-200
                   outline-none
                   text-gray-700
                   py-1
@@ -108,7 +122,9 @@
           </div>
           <div class="p-2 w-full">
             <div class="relative">
-              <label for="passwordTwo" class="leading-7 text-sm text-gray-600"
+              <label
+                for="passwordTwo"
+                class="text-sm font-bold text-gray-500 tracking-wide"
                 >Repetir contraseña</label
               >
               <input
@@ -118,13 +134,13 @@
                 name="passwordTwo"
                 class="
                   w-full
-                  bg-gray-100 bg-opacity-50
-                  rounded
-                  border border-gray-300
-                  focus:border-indigo-500
-                  focus:bg-white
-                  focus:ring-2 focus:ring-indigo-200
+                  bg-gray-100
                   text-base
+                  rounded-lg
+                  border border-gray-300
+                  focus:border-blue-500
+                  focus:bg-white
+                  focus:ring-2 focus:ring-blue-200
                   outline-none
                   text-gray-700
                   py-1
@@ -149,22 +165,34 @@
               @click.prevent="sendData"
               type="submit"
               class="
-                flex
-                mx-auto
-                text-white
-                bg-blue-500
-                border-0
-                py-2
-                px-8
-                focus:outline-none
-                hover:bg-blue-600
-                rounded
-                text-lg
                 disabled:opacity-25
+                w-full
+                flex
+                justify-center
+                bg-gradient-to-r
+                from-blue-500
+                to-blue-600
+                hover:bg-gradient-to-l
+                hover:from-blue-600
+                hover:to-blue-800
+                text-gray-100
+                p-3
+                rounded-full
+                tracking-wide
+                font-semibold
+                shadow-lg
+                cursor-pointer
+                transition
+                ease-in
+                duration-500
+                nav
               "
             >
               <span
-                ><div class="flex justify-center" v-if="this.$store.state.User.isLoading">
+                ><div
+                  class="flex justify-center"
+                  v-if="this.$store.state.User.isLoading"
+                >
                   <LoadingComponent :tam="30" />
                   <span>Cargando...</span>
                 </div>
@@ -176,15 +204,15 @@
       </form>
     </div>
   </section>
-  {{ data }}
 </template>
 
 <script>
 import { computed, reactive } from "@vue/reactivity";
 import { useStore } from "vuex";
 import LoadingComponent from "@/components/layout/LoadingComponent.vue";
+import NotifyComponent from "@/components/layout/NotifyComponent.js";
 export default {
-  components: {LoadingComponent},
+  components: { LoadingComponent },
   setup() {
     const store = useStore();
     const errorMensaje = computed(() => {
@@ -197,7 +225,15 @@ export default {
       password2: "",
     });
     const sendData = async () => {
-      store.dispatch("register", data);
+      const userRegister = await store.dispatch("register", data);
+      data.name = "";
+      data.email = "";
+      data.password = "";
+      data.password2 = "";
+      if (userRegister)
+        NotifyComponent.login(
+          `<h3 class="py-3 font-medium text-base">El usuario ha sido registrado👨🏻‍🏭</h3>`
+        );
     };
     return { sendData, data, errorMensaje };
   },

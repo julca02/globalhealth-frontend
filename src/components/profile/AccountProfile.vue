@@ -275,7 +275,7 @@
                   v-if="this.$store.state.User.isLoading"
                   class="flex justify-center"
                 >
-                  <LoadingComponent :tam="20" />
+                  <LoadingComponent tam="lg" />
                   <span>Cargando...</span>
                 </div>
                 <span v-else>Actualizar</span>

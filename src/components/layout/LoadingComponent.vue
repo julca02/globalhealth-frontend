@@ -1,21 +1,19 @@
 <template>
-  <SpringSpinner
-    class="mx-auto"
-    :animation-duration="3000"
-    :size="tam"
-    :color="'#1424C4'"
-  />
+  <div class="mx-auto flex justify-center">
+    <font-awesome-icon
+      icon="spinner"
+      class="text-blue-600"
+      :size="tam"
+      pulse
+    />
+  </div>
 </template>
 
 <script>
-import { SpringSpinner } from "epic-spinners";
 export default {
-  components: {
-    SpringSpinner
+  props: {
+    tam: String,
   },
-  props:{
-    tam: Number
-  }
 };
 </script>
 

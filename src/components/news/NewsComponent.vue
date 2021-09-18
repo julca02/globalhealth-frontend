@@ -1,5 +1,5 @@
 <template>
-  <LoadingComponent :tam="100" v-if="listNews === null" />
+  <LoadingComponent tam="6x" v-if="listNews === null" />
   <div class="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
     <div
       v-for="item in listNews"

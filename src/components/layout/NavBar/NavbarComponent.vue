@@ -11,7 +11,7 @@
           md:space-x-10
         "
       >
-        <div class="flex lg:w-0 lg:flex-1 items-center space-x-10 nav">
+        <div class="flex lg:w-0 lg:flex-1 items-center justify-between space-x-10 nav">
           <a href="/">
             <span class="sr-only">GlobalHealth</span>
             <img
@@ -36,6 +36,9 @@
             <NoticiasNavBar :responsive="true" />
           </PopoverGroup>
         </div>
+        <NavProfile class="md:hidden" v-if="this.$store.state.User.LoggedIn"
+          :image="this.$store.state.User.user ?
+          this.$store.state.User.user.avatar : noPhoto "/>
         <div class="-mr-2 -my-2 md:hidden">
           <PopoverButton
             class="
@@ -66,18 +69,6 @@
             <router-link
               to="/ingresa"
               class="
-                whitespace-nowrap
-                text-base
-                font-medium
-                text-gray-500
-                hover:text-gray-900
-              "
-            >
-              Ingresa
-            </router-link>
-            <a
-              href="#"
-              class="
                 ml-8
                 whitespace-nowrap
                 inline-flex
@@ -94,13 +85,12 @@
                 text-white
               "
             >
-              Registrate
-            </a>
+              Ingresa
+            </router-link>
           </div>
         </div>
       </div>
     </div>
-
     <transition
       enter-active-class="duration-200 ease-out"
       enter-from-class="opacity-0 scale-95"
@@ -183,28 +173,7 @@
           </div>
           <div class="py-6 px-5 space-y-6">
             <NoticiasNavBar />
-            <div class="nav">
-              <a
-                href="#"
-                class="
-                  w-full
-                  flex
-                  items-center
-                  justify-center
-                  px-4
-                  py-2
-                  border border-transparent
-                  rounded-md
-                  shadow-sm
-                  text-base
-                  font-medium
-                  text-white
-                  bg-indigo-600
-                  hover:bg-indigo-700
-                "
-              >
-                Registrate
-              </a>
+            <div class="nav" v-if="!this.$store.state.User.LoggedIn">
               <p class="mt-6 text-center text-base font-medium text-gray-500">
                 Tienes usuario?
                 {{ " " }}

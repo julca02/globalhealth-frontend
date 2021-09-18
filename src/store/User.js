@@ -24,7 +24,7 @@ export const User = {
                 localStorage.setItem("token", token)
 
                 if (token) {
-                    const user = await profile(token)
+                    const user = await profile()
                     localStorage.setItem('user', JSON.stringify(user.data))
 
                     commit('loginSuccess', { token, user: user.data });
@@ -66,7 +66,10 @@ export const User = {
             commit('register')
             try {
                 const userRegister = await register(user)
-                console.log(userRegister)
+                if(userRegister) {
+                    commit('registerSuccess')
+                }
+                return userRegister.data
             } catch (error) {
                 if (error.response.data) {
                     commit('registerFailure', { payload: error.response.data.message })
