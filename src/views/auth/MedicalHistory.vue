@@ -1,10 +1,10 @@
 <template>
-  <ListMedicalHistory />
+  <ListUsers />
 </template>
 
 <script>
-import ListMedicalHistory from "@/components/medicalHistory/ListMedicalHistory.vue";
+import ListUsers from "@/components/medicalHistory/ListUsers.vue";
 export default {
-  components: { ListMedicalHistory },
+  components: { ListUsers },
 };
 </script>

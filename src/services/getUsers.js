@@ -16,9 +16,9 @@ const fromApiResponseToUsers = apiResponse => {
   const data = apiResponse.data
   if (Array.isArray(data)) {
       const users = data.map(userItem => {
-          const { name, email, phone, createdAt, gender } = userItem
+          const { _id, name, email, phone, createdAt, gender } = userItem
           const dateFormat = new Date(createdAt).toLocaleString()
-          return { name, email, phone, dateFormat, gender }
+          return { _id, name, email, phone, dateFormat, gender }
       })
       return users
   }
@@ -26,6 +26,8 @@ const fromApiResponseToUsers = apiResponse => {
 }
 
 export const getUsers = async (rol) => await userAxios.post(`/list/`, {rol}).then(res => fromApiResponseToUsers(res))
+
+export const getUserDetail = async(id) => await userAxios.get(`/list/${id}`,)
 
 export const register = async (user) => await userAxios.post(`/register`, user)
 

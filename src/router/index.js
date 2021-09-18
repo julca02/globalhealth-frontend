@@ -58,7 +58,9 @@ const routes = [
         name: 'MedicalHistory',
         component: () => import(/* webpackChunkName: "MedicalHistory" */ '../views/auth/MedicalHistory.vue'),
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          administrador: true,
+          vendedor: true
         }
       },
       {
@@ -68,6 +70,13 @@ const routes = [
         meta: {
           requiresAuth: true
         }
+      },
+      {
+        path: ':id',
+        name: 'idUser',
+        component: () => import(/* webpackChunkName: "MedicalHistory" */ '../views/auth/userDetail.vue'),
+        // anybody can read a post
+        meta: { requiresAuth: false }
       }
     ]
   }
@@ -84,6 +93,8 @@ router.beforeEach((to, from, next) => {
       if (store.state.User.user && store.state.User.user.rol.name === 'Admin') {
         next();
       } else if (store.state.User.user && store.state.User.user.rol.name === 'Doctor') {
+        next();
+      } else if (store.state.User.user && store.state.User.user.rol.name === 'Paciente') {
         next();
       } else {
         next({ name: "Home" });

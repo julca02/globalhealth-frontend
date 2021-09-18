@@ -247,7 +247,8 @@
                 leading-5
               "
             >
-              <button
+              <router-link
+                :to="item._id"
                 class="
                   px-5
                   py-2
@@ -262,7 +263,7 @@
                 "
               >
                 Ver detalles
-              </button>
+              </router-link>
             </td>
           </tr>
         </tbody>
@@ -301,7 +302,7 @@ export default {
       users.value = await getUsers(store.state.User.user.rol._id)
     });
     return {
-      users,
+      users
     };
   },
 };
