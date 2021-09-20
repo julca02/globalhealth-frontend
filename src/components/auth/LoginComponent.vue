@@ -26,11 +26,8 @@
           p-10
           overflow-hidden
           text-white
-          bg-no-repeat bg-cover
           relative
-        "
-        style="
-          background-image: url(https://coecadiz.com/wp-content/uploads/2018/06/fondo-login-web.jpg);
+          background-img
         "
       >
         <div
@@ -302,3 +299,10 @@ export default {
   },
 };
 </script>
+<style scoped>
+.background-img{
+  background: url('~@/assets/login.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+</style>

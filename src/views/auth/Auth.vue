@@ -23,7 +23,7 @@
               flex
               w-full
               justify-between
-              text-gray-300
+              text-white
               hover:text-gray-400
               cursor-pointer
               items-center
@@ -40,7 +40,7 @@
               flex
               w-full
               justify-between
-              text-gray-300
+              text-white
               hover:text-gray-400
               cursor-pointer
               items-center
@@ -60,7 +60,7 @@
         w-64
         z-40
         absolute
-        bg-gray-800
+        bg-blue-800
         shadow
         md:h-full
         flex-col
@@ -77,7 +77,7 @@
         class="
           h-10
           w-10
-          bg-gray-800
+          bg-blue-800
           absolute
           right-0
           mt-16
@@ -125,7 +125,7 @@
               flex
               w-full
               justify-between
-              text-gray-300
+              text-white
               hover:text-gray-500
               cursor-pointer
               items-center
@@ -142,7 +142,7 @@
               flex
               w-full
               justify-between
-              text-gray-600
+              text-white
               hover:text-gray-500
               cursor-pointer
               items-center

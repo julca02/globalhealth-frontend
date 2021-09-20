@@ -87,99 +87,41 @@
       <table class="min-w-full">
         <thead>
           <tr>
-            <th
-              class="
-                px-6
-                py-3
-                border-b-2 border-gray-300
-                text-left
-                leading-4
-                text-blue-500
-                tracking-wider
-              "
-            >
-              ID
-            </th>
-            <th
-              class="
-                px-6
-                py-3
-                border-b-2 border-gray-300
-                text-left text-sm
-                leading-4
-                text-blue-500
-                tracking-wider
-              "
-            >
+            <th class="px-6 py-3 leading-4 text-blue-500 tracking-wider">ID</th>
+            <th class="px-6 py-3 leading-4 text-blue-500 tracking-wider">
               Nombre Completo
             </th>
-            <th
-              class="
-                px-6
-                py-3
-                border-b-2 border-gray-300
-                text-left text-sm
-                leading-4
-                text-blue-500
-                tracking-wider
-              "
-            >
+            <th class="px-6 py-3 leading-4 text-blue-500 tracking-wider">
               Email
             </th>
-            <th
-              class="
-                px-6
-                py-3
-                border-b-2 border-gray-300
-                text-left text-sm
-                leading-4
-                text-blue-500
-                tracking-wider
-              "
-            >
+            <th class="px-6 py-3 leading-4 text-blue-500 tracking-wider">
               Celular
             </th>
-            <th
-              class="
-                px-6
-                py-3
-                border-b-2 border-gray-300
-                text-left text-sm
-                leading-4
-                text-blue-500
-                tracking-wider
-              "
-            >
+            <th class="px-6 py-3 leading-4 text-blue-500 tracking-wider">
               Genero
             </th>
-            <th
-              class="
-                px-6
-                py-3
-                border-b-2 border-gray-300
-                text-left text-sm
-                leading-4
-                text-blue-500
-                tracking-wider
-              "
-            >
+            <th class="px-6 py-3 leading-4 text-blue-500 tracking-wider">
               Creado
             </th>
-            <th class="px-6 py-3 border-b-2 border-gray-300"></th>
+            <th class="px-6 py-3 leading-4 text-blue-500 tracking-wider">
+              Acciones
+            </th>
           </tr>
         </thead>
-        <tbody class="bg-white">
+        <tbody>
           <tr v-for="(item, index) in users" :key="item._id">
-            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+            <td class="px-6 py-4 whitespace-no-wrap border">
               <div class="flex items-center">
                 <div>
-                  <div class="text-sm leading-5 text-gray-800">{{index+1}}</div>
+                  <div class="text-sm leading-5 text-gray-800">
+                    {{ index + 1 }}
+                  </div>
                 </div>
               </div>
             </td>
-            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+            <td class="px-6 py-4 whitespace-no-wrap border">
               <div class="text-sm leading-5 text-blue-900">
-                {{item.name}}
+                {{ item.name }}
               </div>
             </td>
             <td
@@ -187,54 +129,51 @@
                 px-6
                 py-4
                 whitespace-no-wrap
-                border-b
                 text-blue-900
-                border-gray-500
+                border
                 text-sm
                 leading-5
               "
             >
-              {{item.email}}
+              {{ item.email }}
             </td>
             <td
               class="
                 px-6
                 py-4
                 whitespace-no-wrap
-                border-b
                 text-blue-900
-                border-gray-500
+                border
                 text-sm
                 leading-5
               "
             >
-              {{item.phone}}
+              {{ item.phone }}
             </td>
             <td
               class="
                 px-6
                 py-4
                 whitespace-no-wrap
-                border-b
                 text-blue-900
-                border-gray-500
+                border
                 text-sm
                 leading-5
               "
             >
-                {{item.gender}}
+              {{ item.gender }}
             </td>
             <td
               class="
                 px-6
                 py-4
                 whitespace-no-wrap
-                border-b border-gray-500
+                border
                 text-blue-900 text-sm
                 leading-5
               "
             >
-              {{item.dateFormat}}
+              {{ item.dateFormat }}
             </td>
             <td
               class="
@@ -242,19 +181,18 @@
                 py-4
                 whitespace-no-wrap
                 text-right
-                border-b border-gray-500
+                border
                 text-sm
                 leading-5
               "
             >
               <router-link
-                :to="item._id"
+                :to="'medical-history/' + item._id"
                 class="
                   px-5
                   py-2
-                  border-blue-500 border
                   text-blue-500
-                  rounded
+                  rounded-lg
                   transition
                   duration-300
                   hover:bg-blue-700
@@ -262,7 +200,7 @@
                   focus:outline-none
                 "
               >
-                Ver detalles
+                Detalles
               </router-link>
             </td>
           </tr>
@@ -280,7 +218,7 @@
         <div>
           <p class="text-sm leading-5 text-blue-700">
             Mostrando
-            <span class="font-medium">{{users.length}}</span>
+            <span class="font-medium">{{ users.length }}</span>
             resultados
           </p>
         </div>
@@ -293,20 +231,17 @@
 import { getUsers } from "@/services/getUsers";
 import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
-import { useStore } from 'vuex';
+import { useStore } from "vuex";
 export default {
   setup() {
-    const store = useStore()
+    const store = useStore();
     const users = ref([]);
     onMounted(async () => {
-      users.value = await getUsers(store.state.User.user.rol._id)
+      users.value = await getUsers(store.state.User.user.rol._id);
     });
     return {
-      users
+      users,
     };
   },
 };
 </script>
-
-<style>
-</style>
