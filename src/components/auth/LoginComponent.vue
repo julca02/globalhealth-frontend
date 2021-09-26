@@ -83,7 +83,7 @@
       >
         <div class="max-w-md w-full space-y-8">
           <div class="text-center">
-            <img src="@/assets/logo.svg" class="mx-auto" />
+            <img src="@/assets/logo.svg" alt="logo-globalhealth" class="mx-auto" />
             <h2 class="mt-6 text-3xl font-bold text-gray-900 nav">
               Bienvenido
             </h2>

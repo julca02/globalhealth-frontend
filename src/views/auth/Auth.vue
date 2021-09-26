@@ -117,7 +117,7 @@
       </div>
       <div class="px-8 h-screen">
         <div class="h-16 w-full flex items-center">
-          <img src="@/assets/logo_white_large.png" alt="" />
+          <img src="@/assets/logo_white_large.png" alt="logo white" />
         </div>
         <ul class="mt-12">
           <li

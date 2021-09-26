@@ -31,7 +31,7 @@
     >
       <div class="w-full md:w-1/2">
         <div class="mb-10 lg:mb-20">
-          <img src="@/assets/logo.svg" alt="" />
+          <img src="@/assets/logo.svg" alt="logo globalhealth"/>
         </div>
         <div class="mb-10 md:mb-20 text-gray-600 font-light">
           <h1
@@ -70,7 +70,7 @@
         </div>
       </div>
       <div class="w-full md:w-1/2 text-center">
-        <img src="@/assets/404doctors.svg" alt="">
+        <img src="@/assets/404doctors.svg" alt="404">
       </div>
     </div>
     

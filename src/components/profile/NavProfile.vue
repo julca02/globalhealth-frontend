@@ -15,7 +15,7 @@
         "
       >
         <span class="sr-only">Open user menu</span>
-        <img class="h-8 w-8 rounded-full" :src="image" alt="" />
+        <img class="h-8 w-8 rounded-full" :src="image" alt="profile" />
       </MenuButton>
     </div>
     <transition

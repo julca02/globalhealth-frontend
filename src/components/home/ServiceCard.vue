@@ -19,12 +19,10 @@
           class="
             max-w-md
             mb-6
-            text-3xl
-            md:text-5xl
+            text-4xl
             font-bold
             tracking-tight
             text-gray-600
-            sm:text-4xl
             sm:leading-none
             xl:max-w-lg
             title
@@ -47,12 +45,11 @@
               mt-16
               py-4
               px-4
-              bg-whit
               w-72
               bg-white
               rounded-xl
               border-2
-              border-gray-50
+              border-gray-100
               hover:shadow-xl
               transform
               hover:scale-110

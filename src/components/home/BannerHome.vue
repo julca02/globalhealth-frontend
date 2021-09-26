@@ -6,12 +6,11 @@
         bg-blue-100
         w-full
         h-4/6
-        z-0
         top-0
+        rounded-b-3xl
       "
-      style="border-bottom-left-radius: 5%; border-bottom-right-radius: 5%"
     ></div>
-    <div class="w-full z-10 mt-40 ">
+    <div class="w-full z-10 mt-36">
       <div class="w-5/6 mx-auto shadow-md rounded-md shadow-2xl bg-white">
         <div
           class="
@@ -41,7 +40,7 @@
                     title
                   "
                 >
-                  GlobalHealth, bienvenidos a nuestra plataforma de salud.<br
+                  GlobalHealth, bienvenidos a nuestra plataforma de salud<br
                     class="hidden md:block"
                   />
                   Mejora tu experiencia en tramites.
@@ -56,6 +55,7 @@
               <img
                 class="object-cover w-full h-56 rounded sm:h-96"
                 src="@/assets/43071.jpg"
+                alt="banner landingpage"
               />
             </div>
           </div>

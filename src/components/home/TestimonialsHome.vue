@@ -1,10 +1,9 @@
 <template>
-  <section class="body-font bg-blue-50 mt-6 py-1 rounded-xl ">
+  <section class="bg-blue-50 mt-6 py-1 rounded-xl ">
     <div class="container px-5 my-16 mx-auto">
       <div class="text-center max-w-xl mx-auto">
         <h1 class="text-3xl md:text-5xl font-bold mb-5 text-gray-600 title">
-          Aquí todos son <br />
-          escuchados
+          Aquí todos son escuchados
         </h1>
         <h3 class="text-xl mb-5 font-light">
           GlobalHealth comprende las necesidades de nuestros usuarios por lo cual siempre escucharemos sus sugerencias para mejorar cada día.
@@ -31,6 +30,7 @@
                   border-2 border-indigo-500
                 "
                 :src="item.imagen"
+                alt="profile photo"
               />
             </div>
             <div>
