@@ -301,6 +301,7 @@ export default {
 </script>
 <style scoped>
 .background-img{
+  width: 84%;
   background: url('~@/assets/login.jpg');
   background-repeat: no-repeat;
   background-size: 100%;

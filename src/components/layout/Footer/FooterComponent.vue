@@ -15,7 +15,7 @@
               /></router-link>
             </div>
 
-            <p class="text-white max-w-md mt-2 mr-5">
+            <p class="text-white max-w-md mt-2 mr-5 nav">
               La única manera de mantener tu salud es comer lo que no quieres,
               beber lo que no te gusta y hacer cosas que preferirías no hacer
             </p>
@@ -26,44 +26,25 @@
           <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-3">
             <div class="flex flex-col items-center justify-center space-y-5">
               <router-link
-                to="/"
+              v-for="(link, i) in navFooter.slice(0, 3)"
+                :to="link.href"
+                :key="i"
                 class="
-                  text-base
-                  font-medium
-                  text-gray-50
-                  hover:text-gray-300
-                  hover:border-b-2
-                  border-blue-600
+                  transition duration-500 ease-in-out transform text-white hover:text-medium hover:-translate-y-1 hover:scale-110 nav
                 "
-                >Inicio</router-link
-              >
-              <a
-                href="/blog"
-                class="text-base font-medium text-gray-50 hover:text-gray-300"
-                >Blog</a
-              >
-              <router-link
-                to="/noticias"
-                class="text-base font-medium text-gray-50 hover:text-gray-300"
-                >Actualidad</router-link
+                >{{link.name}}</router-link
               >
             </div>
 
             <div class="flex flex-col items-center justify-center space-y-5">
               <router-link
-                to="#"
-                class="text-base font-medium text-gray-50 hover:text-gray-300"
-                >Preguntas</router-link
-              >
-              <router-link
-                to="#"
-                class="text-base font-medium text-gray-50 hover:text-gray-300"
-                >Informacion</router-link
-              >
-              <router-link
-                to="#"
-                class="text-base font-medium text-gray-50 hover:text-gray-300"
-                >Privacidad</router-link
+              v-for="(link, i) in navFooter.slice(3, 6)"
+                :to="link.href"
+                :key="i"
+                class="
+                  transition duration-500 ease-in-out transform text-white hover:text-medium hover:-translate-y-1 hover:scale-110 nav
+                "
+                >{{link.name}}</router-link
               >
             </div>
 
@@ -101,7 +82,7 @@
                     transition-colors
                   "
                 >
-                  <font-awesome-icon :icon="['fas', 'search']" size="lg"/>
+                  <font-awesome-icon :icon="['fas', 'search']" size="lg" />
                 </button>
               </div>
             </div>
@@ -112,14 +93,16 @@
       <hr class="h-px my-6 bg-gray-300 border-none" />
 
       <div class="flex justify-between">
-        <p class="text-base font-medium text-gray-50 hover:text-gray-300">
-          © GlobalHealth
-        </p>
+        <p class="text-medium text-gray-50 title">© GlobalHealth</p>
         <div>
           <a
             href="https://github.com/julca02/globalhealth-frontend"
             target="_blank"
-            ><font-awesome-icon :icon="['fab', 'github']" size="lg" class="text-white"/></a>
+            ><font-awesome-icon
+              :icon="['fab', 'github']"
+              size="lg"
+              class="text-white"
+          /></a>
         </div>
       </div>
     </div>
@@ -127,13 +110,27 @@
 </template>
 
 <script>
+const navFooter = [
+  { name: "Inicio", href: "/" },
+  { name: "Blog", href: "/" },
+  { name: "Actualidad", href: "/noticias" },
+  { name: "Preguntas", href: "/noticias" },
+  { name: "Informacion", href: "/noticias" },
+  { name: "Privacidad", href: "/noticias" },
+];
 export default {
+  setup() {
+    return {
+      navFooter,
+    };
+  },
 };
 </script>
 
 <style scoped>
+
 .footer {
-background: rgb(18,70,130);
-background: linear-gradient(171deg, rgba(18,70,130,1) 49%, rgba(0,49,119,1) 67%);
+background: rgb(16,67,152);
+background: linear-gradient(209deg, rgba(16,67,152,1) 21%, rgba(24,86,187,1) 34%, rgba(36,107,221,1) 94%);
 }
 </style>
