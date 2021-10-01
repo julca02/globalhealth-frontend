@@ -5,12 +5,13 @@
         w-64
         absolute
         sm:relative
-        bg-blue-900
         shadow
+        side-bar
         md:h-full
         flex-col
         justify-between
-        hidden sm:flex
+        hidden
+        sm:flex
       "
     >
       <div class="px-8">
@@ -20,37 +21,65 @@
         <ul class="mt-12">
           <li
             class="
-              flex
               w-full
-              justify-between
-              text-white
-              hover:text-gray-400
+              text-gray-300
+              hover:text-white
               cursor-pointer
               items-center
-              mb-6
+              mb-2
             "
           >
-            <div class="flex items-center">
-              <font-awesome-icon icon="book-medical" class="w-auto h-6 text-white"/>
-              <router-link class="text-sm ml-2" to="/auth/medical-history">Historial clinico</router-link>
-            </div>
+            <router-link
+              to="/auth/medical-history"
+              class="
+                flex
+                p-2
+                rounded-2xl
+                focus:shadow-outline
+                transform
+                hover:translate-x-2
+                transition-transform
+                ease-in
+                duration-200
+                focus:shadow-outline
+                focus:bg-blue-500
+              "
+            >
+              <font-awesome-icon
+                icon="book-medical"
+                class="w-auto h-6 text-gray-200"
+              />
+              <span class="text-md ml-2 nav">Historial clinico</span>
+            </router-link>
           </li>
           <li
             class="
-              flex
               w-full
-              justify-between
-              text-white
-              hover:text-gray-400
+              text-gray-300
+              hover:text-white
               cursor-pointer
               items-center
-              mb-6
+              mb-2
             "
           >
-            <div class="flex items-center">
-              <font-awesome-icon icon="user" class="w-auto h-6 text-white"/>
-              <router-link class="text-sm ml-2" to="/auth/register-user">Registrar paciente</router-link>
-            </div>
+            <router-link
+              to="/auth/register-user"
+              class="
+                flex
+                p-2
+                rounded-2xl
+                focus:shadow-outline
+                transform
+                hover:translate-x-2
+                transition-transform
+                ease-in
+                duration-200
+                focus:bg-blue-500
+              "
+            >
+              <font-awesome-icon icon="user" class="w-auto h-6 text-gray-200" />
+              <span class="text-md ml-2 nav">Registrar paciente</span>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -60,7 +89,7 @@
         w-64
         z-40
         absolute
-        bg-blue-800
+        side-bar
         shadow
         md:h-full
         flex-col
@@ -91,7 +120,7 @@
         "
         @click="sidebarHandler(true)"
       >
-      <font-awesome-icon icon="angle-right" class="w-auto h-6 text-white"/>
+        <font-awesome-icon icon="angle-right" class="w-auto h-6 text-white" />
       </div>
       <div
         id="closeSideBar"
@@ -113,46 +142,78 @@
           text-white
         "
         @click="sidebarHandler(false)"
-      >
-      </div>
+      ></div>
       <div class="px-8 h-screen">
         <div class="h-16 w-full flex items-center">
           <img src="@/assets/logo_white_large.png" alt="logo white" />
         </div>
-        <ul class="mt-12">
+        <ul class="mt-2">
           <li
             class="
-              flex
               w-full
-              justify-between
-              text-white
-              hover:text-gray-500
+              text-gray-300
+              hover:text-white
               cursor-pointer
               items-center
-              mb-6
+              mb-2
             "
           >
-            <div class="flex items-center">
-              <font-awesome-icon icon="book-medical" class="w-auto h-6 text-white"/>
-              <router-link class="text-sm ml-2" to="/auth/medical-history">Historial clinico</router-link>
-            </div>
+            <router-link
+              to="/auth/medical-history"
+              class="
+                flex
+                items-center
+                flex
+                p-2
+                rounded-2xl
+                focus:shadow-outline
+                transform
+                hover:translate-x-2
+                transition-transform
+                ease-in
+                duration-200
+                focus:shadow-outline
+                focus:bg-blue-500
+              "
+            >
+              <font-awesome-icon
+                icon="book-medical"
+                class="w-auto h-6 text-white"
+              />
+              <span class="text-sm ml-2 nav">Historial clinico</span>
+            </router-link>
           </li>
           <li
             class="
-              flex
               w-full
-              justify-between
-              text-white
-              hover:text-gray-500
+              text-gray-300
+              hover:text-white
               cursor-pointer
               items-center
-              mb-6
+              mb-2
             "
           >
-            <div class="flex items-center">
-              <font-awesome-icon icon="user" class="w-auto h-6 text-white"/>
-              <router-link class="text-sm ml-2" to="/auth/register-user">Registrar paciente</router-link>
-            </div>
+            <router-link
+              to="/auth/register-user"
+              class="
+                flex
+                items-center
+                flex
+                p-2
+                rounded-2xl
+                focus:shadow-outline
+                transform
+                hover:translate-x-2
+                transition-transform
+                ease-in
+                duration-200
+                focus:shadow-outline
+                focus:bg-blue-500
+              "
+            >
+              <font-awesome-icon icon="user" class="w-auto h-6 text-white" />
+              <span class="text-sm ml-2 nav">Registrar paciente</span>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -188,3 +249,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.side-bar {
+  background: #3d5af1;
+}
+</style>
