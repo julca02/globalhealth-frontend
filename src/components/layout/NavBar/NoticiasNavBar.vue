@@ -145,7 +145,7 @@ const resources = [
   },
   {
     name: "Covid",
-    description: "Understand how we take your privacy seriously.",
+    description: "Estadisticas de los casos activos en Covid-19",
     href: "/covid-noticias",
     icon: "shield-virus",
   },
