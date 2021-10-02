@@ -5,7 +5,7 @@
         <div class="md:w-full md:mx-0">
           <div class="flex items-center space-x-4">
             <img
-              class="w-auto h-20 object-cover rounded-full"
+              class="w-auto max-w-xl h-20 object-cover rounded-full"
               alt="User avatar"
               :src="avatarRender ? avatarRender : user.avatar"
             />
@@ -134,25 +134,24 @@
                 >Numero de celular</label
               >
               <div class="flex relative">
-
-              <input
-                type="number"
-                class="
-                  block
-                  w-full
-                  bg-grey-lighter
-                  text-grey-darker
-                  border border-grey-lighter
-                  rounded-lg
-                  h-10
-                  px-4
-                  md:w-full
-                "
-                :placeholder="user.phone"
-                v-model="phone"
-                required
-              />
-              <div
+                <input
+                  type="number"
+                  class="
+                    block
+                    w-full
+                    bg-grey-lighter
+                    text-grey-darker
+                    border border-grey-lighter
+                    rounded-lg
+                    h-10
+                    px-4
+                    md:w-full
+                  "
+                  :placeholder="user.phone"
+                  v-model="phone"
+                  required
+                />
+                <div
                   class="
                     absolute
                     inset-y-0
@@ -184,7 +183,8 @@
                   px-4
                   md:w-full
                 "
-                min="1900-01-01" max="2020-12-31"
+                min="1900-01-01"
+                max="2020-12-31"
                 :disabled="user.birth"
                 v-model="birth"
                 required
@@ -206,7 +206,7 @@
                 "
                 v-model="gender"
               >
-                <option value="" disabled>{{user.gender}}</option>
+                <option value="" disabled>{{ user.gender }}</option>
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
                 <option value="No binario">No binario</option>
@@ -240,47 +240,23 @@
               pl-2
             "
           >
-            <div class="w-full inline-flex border-b">
+            <div class="w-full inline-flex">
               <input
                 type="password"
-                class="w-11/12 focus:outline-none focus:text-gray-600 p-2 ml-4"
+                class="
+                  block
+                  w-full
+                  bg-grey-lighter
+                  text-grey-darker
+                  border border-grey-lighter
+                  rounded-lg
+                  h-10
+                  px-4
+                  md:w-full
+                "
                 placeholder="*****"
               />
             </div>
-          </div>
-          <div class="md:w-3/12 text-center md:pl-6">
-            <button
-              type="submit"
-              class="
-                disabled:opacity-25
-                text-white
-                w-full
-                mx-auto
-                max-w-sm
-                rounded-3xl
-                text-center
-                bg-blue-500
-                py-2
-                px-4
-                items-center
-                transition
-                ease-in
-                duration-500
-              "
-              :disabled="this.$store.state.User.isLoading || !name"
-              @click.prevent="updateUser"
-            >
-              <span className="inline-block mr-2">
-                <div
-                  v-if="this.$store.state.User.isLoading"
-                  class="flex justify-center"
-                >
-                  <LoadingComponent tam="lg" />
-                  <span>Cargando...</span>
-                </div>
-                <span v-else>Actualizar</span>
-              </span>
-            </button>
           </div>
         </div>
         <hr />
@@ -292,11 +268,40 @@
               rounded-xl
               text-white
               focus:outline-none
-              mr-4
+              rounded-3xl
               hover:bg-red-600
             "
           >
             Borrar cuenta
+          </button>
+          <button
+            type="submit"
+            class="
+              disabled:opacity-25
+              text-white
+              rounded-3xl
+              text-center
+              bg-blue-500
+              py-2
+              px-4
+              items-center
+              transition
+              ease-in
+              duration-500
+            "
+            :disabled="this.$store.state.User.isLoading || !name"
+            @click.prevent="updateUser"
+          >
+            <span className="inline-block mr-2">
+              <div
+                v-if="this.$store.state.User.isLoading"
+                class="flex justify-center"
+              >
+                <LoadingComponent tam="lg" />
+                <span>Cargando...</span>
+              </div>
+              <span v-else>Actualizar</span>
+            </span>
           </button>
         </div>
       </form>
@@ -308,7 +313,7 @@
 import { useStore } from "vuex";
 import { ref } from "@vue/reactivity";
 import LoadingComponent from "@/components/layout/LoadingComponent.vue";
-import NotifyComponent from '@/components/layout/NotifyComponent.js'
+import NotifyComponent from "@/components/layout/NotifyComponent.js";
 export default {
   components: {
     LoadingComponent,
@@ -319,8 +324,8 @@ export default {
   setup(props) {
     const name = ref(props.user.name);
     const phone = ref(props.user.phone || 57);
-    const birth = ref()
-    const gender = ref('')
+    const birth = ref();
+    const gender = ref("");
     const avatar = ref(null);
     const avatarRender = ref(null);
 
@@ -328,21 +333,23 @@ export default {
     const updateUser = async () => {
       const formData = new FormData();
       formData.append("name", name.value);
-      const expresion = /^3[\d]{9}$/
+      const expresion = /^3[\d]{9}$/;
       if (expresion.test(phone.value)) {
         formData.append("phone", phone.value);
       }
       if (avatar.value != null) {
         formData.append("avatar", avatar.value);
       }
-      if(gender.value.length > 1){
-        formData.append("gender", gender.value)
-      } 
-      const vregexNaix = /^\d{4}-\d{2}-\d{2}$/
-      if(vregexNaix.test(birth.value)) formData.append("birth", birth.value)
+      if (gender.value.length > 1) {
+        formData.append("gender", gender.value);
+      }
+      const vregexNaix = /^\d{4}-\d{2}-\d{2}$/;
+      if (vregexNaix.test(birth.value)) formData.append("birth", birth.value);
 
       await store.dispatch("update", formData);
-      NotifyComponent.editProfile(`<h3 class="py-4 text-base">Usuario actualizado✍️, recarga para ver cambios</h3>`)
+      NotifyComponent.editProfile(
+        `<h3 class="py-4 text-base">Usuario actualizado✍️, recarga para ver cambios</h3>`
+      );
     };
     const onFileChange = (e) => {
       const files = e.target.files[0];
@@ -352,7 +359,7 @@ export default {
     return {
       name,
       phone,
-      birth, 
+      birth,
       gender,
       avatarRender,
       updateUser,

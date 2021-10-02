@@ -72,7 +72,7 @@ const routes = [
         }
       },
       {
-        path: ':id',
+        path: 'medical-history/:id',
         name: 'idUser',
         component: () => import(/* webpackChunkName: "MedicalHistory" */ '../views/auth/userDetail.vue'),
         // anybody can read a post

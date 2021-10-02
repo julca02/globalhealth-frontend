@@ -26,11 +26,8 @@
           p-10
           overflow-hidden
           text-white
-          bg-no-repeat bg-cover
           relative
-        "
-        style="
-          background-image: url(https://coecadiz.com/wp-content/uploads/2018/06/fondo-login-web.jpg);
+          background-img
         "
       >
         <div
@@ -86,7 +83,7 @@
       >
         <div class="max-w-md w-full space-y-8">
           <div class="text-center">
-            <img src="@/assets/logo.svg" class="mx-auto" />
+            <img src="@/assets/logo.svg" alt="logo-globalhealth" class="mx-auto" />
             <h2 class="mt-6 text-3xl font-bold text-gray-900 nav">
               Bienvenido
             </h2>
@@ -302,3 +299,11 @@ export default {
   },
 };
 </script>
+<style scoped>
+.background-img{
+  width: 84%;
+  background: url('~@/assets/login.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+</style>
